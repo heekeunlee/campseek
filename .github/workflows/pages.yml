@@ -29,6 +29,15 @@ jobs:
         with:
           node-version: "20"
 
+      - name: "[진단] 숲나들e 연결 테스트"
+        run: |
+          echo "--- curl (IPv4) ---"
+          curl -4 -sS -m 25 -o /dev/null -w "http=%{http_code} time=%{time_total}s\n" \
+            -A "Mozilla/5.0" "https://www.foresttrip.go.kr/rep/or/selectSiDoList.do" || echo "curl failed: $?"
+          echo "--- node fetch ---"
+          node -e "fetch('https://www.foresttrip.go.kr/rep/or/selectSiDoList.do',{headers:{'User-Agent':'Mozilla/5.0'}}).then(r=>console.log('node http',r.status)).catch(e=>console.log('node err:',e.message,'| cause:',e.cause&&(e.cause.code||e.cause.message)))"
+        continue-on-error: true
+
       - name: 빈자리 조회 + 알림 + 대시보드 데이터 생성
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -59,8 +59,9 @@ async function run() {
           })),
       });
     } catch (e) {
-      console.error(`[snapshot] ${w.label} 실패:`, e.message);
-      snapshots.push({ ...w, error: e.message, checkedAt: new Date().toISOString(), results: [] });
+      const detail = e.cause ? ` (cause: ${e.cause.code || e.cause.message})` : '';
+      console.error(`[snapshot] ${w.label} 실패:`, e.message + detail);
+      snapshots.push({ ...w, error: e.message + detail, checkedAt: new Date().toISOString(), results: [] });
     }
     await sleep(1500);
   }
