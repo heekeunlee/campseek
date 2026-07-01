@@ -1,0 +1,14 @@
+# Render Blueprint — https://render.com  (레포 연결 후 자동 배포)
+# always-on 이라 감시/알림 폴링이 정상 동작합니다.
+services:
+  - type: web
+    name: campseek
+    runtime: node
+    plan: free
+    buildCommand: "echo no build needed"
+    startCommand: "node server/index.js"
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # 알림을 쓰려면 Render 대시보드 Environment 에서 추가:
+      # TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID / NOTIFY_WEBHOOK_URL
