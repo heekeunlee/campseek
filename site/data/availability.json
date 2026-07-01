@@ -1,0 +1,436 @@
+{
+  "generatedAt": "2026-07-01T16:53:04.944Z",
+  "snapshots": [
+    {
+      "label": "강원 숲속의집 예시",
+      "arcd": "2",
+      "insttId": "",
+      "beginDate": "20260718",
+      "endDate": "20260719",
+      "section": "01",
+      "sectionName": "숲속의 집",
+      "checkedAt": "2026-07-01T16:53:01.226Z",
+      "availableCount": 1,
+      "results": [
+        {
+          "insttId": "ID04030001",
+          "name": "(원주시)피노키오자연휴양림",
+          "type": "사립",
+          "availableCount": 1,
+          "total": 15,
+          "tel": "033-764-3007",
+          "bookable": true
+        },
+        {
+          "insttId": "0112",
+          "name": "(양양군)미천골자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 28,
+          "tel": "033-673-1806",
+          "bookable": false
+        },
+        {
+          "insttId": "0306",
+          "name": "(고성군)진부령자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 17,
+          "tel": "033-681-5362",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030120",
+          "name": "(인제군)갯골자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 27,
+          "tel": "033-463-3511",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030018",
+          "name": "(인제군)하추자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 15,
+          "tel": "033-461-0056",
+          "bookable": false
+        },
+        {
+          "insttId": "0222",
+          "name": "(춘천시)용화산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 38,
+          "tel": "033-243-9261",
+          "bookable": false
+        },
+        {
+          "insttId": "0109",
+          "name": "(인제군)방태산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 15,
+          "tel": "033-463-8590",
+          "bookable": false
+        },
+        {
+          "insttId": "0102",
+          "name": "(인제군)용대자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 33,
+          "tel": "033-462-5031",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030095",
+          "name": "(양구군)광치자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 32,
+          "tel": "033-482-3115",
+          "bookable": false
+        },
+        {
+          "insttId": "0116",
+          "name": "(화천군)화천숲속야영장",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 0,
+          "tel": "033-441-4466",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030005",
+          "name": "(철원군)철원두루웰숲속문화촌",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 14,
+          "tel": "033-450-5198",
+          "bookable": false
+        },
+        {
+          "insttId": "0110",
+          "name": "(철원군)복주산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 29,
+          "tel": "033-458-9426",
+          "bookable": false
+        },
+        {
+          "insttId": "0113",
+          "name": "(정선군)가리왕산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 46,
+          "tel": "033-562-5833",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030003",
+          "name": "(평창군)평창자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 17,
+          "tel": "033-339-9028",
+          "bookable": false
+        },
+        {
+          "insttId": "0243",
+          "name": "(평창군)두타산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 26,
+          "tel": "033-334-8815",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030067",
+          "name": "(영월군)망경대산자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 14,
+          "tel": "033-375-8765",
+          "bookable": false
+        },
+        {
+          "insttId": "ID04030002",
+          "name": "(횡성군)횡성자연휴양림",
+          "type": "사립",
+          "availableCount": 0,
+          "total": 23,
+          "tel": "033-344-3391",
+          "bookable": false
+        },
+        {
+          "insttId": "0106",
+          "name": "(횡성군)청태산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 26,
+          "tel": "033-343-9707",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030002",
+          "name": "(홍천군)가리산자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 39,
+          "tel": "033-435-6034",
+          "bookable": false
+        },
+        {
+          "insttId": "0107",
+          "name": "(홍천군)삼봉자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 27,
+          "tel": "033-435-8536",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030104",
+          "name": "(삼척시)삼척활기자연휴양림",
+          "type": "사립",
+          "availableCount": 0,
+          "total": 23,
+          "tel": "033-574-0032",
+          "bookable": false
+        },
+        {
+          "insttId": "0244",
+          "name": "(삼척시)검봉산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 26,
+          "tel": "033-574-2553",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030022",
+          "name": "(태백시)태백고원자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 32,
+          "tel": "010-5112-1360",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030100",
+          "name": "(강릉시)임해자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 23,
+          "tel": "033-644-9483",
+          "bookable": false
+        },
+        {
+          "insttId": "0111",
+          "name": "(강릉시)대관령자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 51,
+          "tel": "033-641-9990",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030024",
+          "name": "(원주시)치악산자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 28,
+          "tel": "033-762-8288",
+          "bookable": false
+        },
+        {
+          "insttId": "0223",
+          "name": "(원주시)백운산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 30,
+          "tel": "033-766-1063",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030125",
+          "name": "(춘천시)춘천숲자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 12,
+          "tel": "033-264-1156",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030043",
+          "name": "(춘천시)집다리골자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 19,
+          "tel": "033-243-8920",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030096",
+          "name": "(춘천시)강원숲체험장",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 20,
+          "tel": "033-242-6601",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030049",
+          "name": "(양양군)송이밸리자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 23,
+          "tel": "033-670-2644",
+          "bookable": false
+        }
+      ]
+    },
+    {
+      "label": "전북 야영장 예시",
+      "arcd": "5",
+      "insttId": "",
+      "beginDate": "20260725",
+      "endDate": "20260726",
+      "section": "02",
+      "sectionName": "야영장",
+      "checkedAt": "2026-07-01T16:53:03.442Z",
+      "availableCount": 167,
+      "results": [
+        {
+          "insttId": "ID02030025",
+          "name": "(완주군)고산자연휴양림",
+          "type": "공립",
+          "availableCount": 68,
+          "total": 89,
+          "tel": "063-263-8680",
+          "bookable": true
+        },
+        {
+          "insttId": "ID02030084",
+          "name": "(장수군)와룡자연휴양림",
+          "type": "공립",
+          "availableCount": 44,
+          "total": 89,
+          "tel": "063-350-2477",
+          "bookable": true
+        },
+        {
+          "insttId": "ID04030003",
+          "name": "(남원시)남원자연휴양림",
+          "type": "사립",
+          "availableCount": 18,
+          "total": 21,
+          "tel": "063-633-5333",
+          "bookable": true
+        },
+        {
+          "insttId": "ID02030108",
+          "name": "(무주군)무주향로산자연휴양림",
+          "type": "공립",
+          "availableCount": 16,
+          "total": 21,
+          "tel": "063-322-6884",
+          "bookable": true
+        },
+        {
+          "insttId": "ID02030119",
+          "name": "(김제시)선암자연휴양림",
+          "type": "공립",
+          "availableCount": 10,
+          "total": 10,
+          "tel": "063-540-6141",
+          "bookable": true
+        },
+        {
+          "insttId": "0141",
+          "name": "(무주군)덕유산자연휴양림",
+          "type": "국립",
+          "availableCount": 9,
+          "total": 28,
+          "tel": "063-322-1097",
+          "bookable": true
+        },
+        {
+          "insttId": "ID02030122",
+          "name": "(임실군)성수산왕의숲자연휴양림",
+          "type": "공립",
+          "availableCount": 2,
+          "total": 10,
+          "tel": "063-643-4683",
+          "bookable": true
+        },
+        {
+          "insttId": "ID02030131",
+          "name": "(정읍시)내장산자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 0,
+          "tel": "063-536-5766",
+          "bookable": false
+        },
+        {
+          "insttId": "0301",
+          "name": "(군산시)신시도자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 0,
+          "tel": "063-464-5580",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030074",
+          "name": "(진안군)데미샘자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 0,
+          "tel": "063-290-6993",
+          "bookable": false
+        },
+        {
+          "insttId": "0194",
+          "name": "(진안군)운장산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 17,
+          "tel": "063-432-1193",
+          "bookable": false
+        },
+        {
+          "insttId": "ID02030082",
+          "name": "(장수군)방화동자연휴양림",
+          "type": "공립",
+          "availableCount": 0,
+          "total": 57,
+          "tel": "063-350-2474",
+          "bookable": false
+        },
+        {
+          "insttId": "0188",
+          "name": "(순창군)회문산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 8,
+          "tel": "063-653-4779",
+          "bookable": false
+        },
+        {
+          "insttId": "0189",
+          "name": "(부안군)변산자연휴양림",
+          "type": "국립",
+          "availableCount": 0,
+          "total": 0,
+          "tel": "063-581-9977",
+          "bookable": false
+        }
+      ]
+    }
+  ]
+}
