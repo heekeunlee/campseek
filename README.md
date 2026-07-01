@@ -101,6 +101,24 @@ CLI로 클라이언트만 점검: `npm run forests`
 
 ---
 
+## 배포: GitHub Pages + Actions (서버리스)
+
+GitHub만으로 배포하는 방식입니다. **GitHub Actions(cron)** 가 서버 대신 주기적으로
+숲나들e를 조회해 알림을 보내고, 결과를 **GitHub Pages** 대시보드로 보여줍니다.
+(브라우저에서 숲나들e 직접 호출은 CORS로 막히므로, 조회는 Actions 러너에서 수행합니다.)
+
+**설정 순서**
+1. 감시 조건 편집: `config/watches.json` 수정 후 커밋
+2. (선택) 알림: 저장소 **Settings → Secrets and variables → Actions** 에 추가
+   - `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` 또는 `NOTIFY_WEBHOOK_URL`
+3. **Settings → Pages → Source: GitHub Actions** 로 설정
+4. `.github/workflows/pages.yml` 이 30분마다 자동 실행 (수동 실행: Actions 탭 → Run workflow)
+5. 대시보드: `https://heekeunlee.github.io/campseek/`
+
+> 스케줄은 UTC 기준이며 GitHub 사정에 따라 지연될 수 있습니다.
+> 임의 조건 **실시간 검색 UI**는 서버가 필요하므로 로컬 `npm start` 로 사용하세요.
+> 상시 실행 서버 배포가 필요하면 저장소의 `Dockerfile` / `render.yaml` 을 사용하세요.
+
 ## 프로젝트 구조
 
 ```

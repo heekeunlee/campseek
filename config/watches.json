@@ -1,0 +1,23 @@
+{
+  "//": "감시할 조건 목록. 여기를 수정해 커밋하면 GitHub Actions가 주기적으로 확인합니다.",
+  "//section": "section: 01=숲속의집, 02=야영장 | arcd 지역코드(1서울인천경기 2강원 3충북 4대전충남 5전북 6전남광주 7대구경북 8부산울산경남 9제주) | insttId 비우면 지역 전체",
+  "//date": "beginDate/endDate: YYYYMMDD (입실/퇴실)",
+  "watches": [
+    {
+      "label": "강원 숲속의집 예시",
+      "arcd": "2",
+      "insttId": "",
+      "beginDate": "20260718",
+      "endDate": "20260719",
+      "section": "01"
+    },
+    {
+      "label": "전북 야영장 예시",
+      "arcd": "5",
+      "insttId": "",
+      "beginDate": "20260725",
+      "endDate": "20260726",
+      "section": "02"
+    }
+  ]
+}

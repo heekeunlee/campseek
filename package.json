@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node server/index.js",
+    "snapshot": "node scripts/snapshot.js",
     "forests": "node server/forestClient.js"
   },
   "dependencies": {}
