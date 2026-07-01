@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 로컬 스케줄러: 30분마다 숲나들e 조회 → 알림 → gh-pages 배포.
+     설치:  cp deploy/com.campseek.snapshot.plist ~/Library/LaunchAgents/
+            launchctl load ~/Library/LaunchAgents/com.campseek.snapshot.plist
+     해제:  launchctl unload ~/Library/LaunchAgents/com.campseek.snapshot.plist
+     로그:  data/publish.log -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.campseek.snapshot</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/dasepa/campseek/scripts/publish.sh</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/dasepa/campseek</string>
+
+  <!-- launchd는 최소 PATH를 쓰므로 node/git 경로를 명시 -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>StartInterval</key>
+  <integer>1800</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/dasepa/campseek/data/publish.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/dasepa/campseek/data/publish.log</string>
+</dict>
+</plist>

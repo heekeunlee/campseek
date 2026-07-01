@@ -9,6 +9,9 @@ import { fileURLToPath } from 'node:url';
 import { search, SECTION } from '../server/forestClient.js';
 import { notifyAvailability } from '../server/notify.js';
 
+// .env 로드 (알림 설정: launchd/cron 환경에서도 동작하도록)
+try { process.loadEnvFile(new URL('../.env', import.meta.url)); } catch { /* .env 없음 */ }
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const SITE = join(ROOT, 'site');
