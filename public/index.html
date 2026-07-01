@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌲 campseek — 자연휴양림 빈자리 조회</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌲 campseek</h1>
+    <p class="sub">숲나들e 자연휴양림 · 숲속의 집 &amp; 야영장 빈자리 조회 · 알림</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>빈자리 검색</h2>
+      <form id="searchForm" class="grid">
+        <label>시설 종류
+          <select id="section">
+            <option value="01">숲속의 집 (숙박)</option>
+            <option value="02">야영장</option>
+          </select>
+        </label>
+        <label>지역
+          <select id="region"><option value="">전체(선택하세요)</option></select>
+        </label>
+        <label>휴양림
+          <select id="forest"><option value="">지역 내 전체</option></select>
+        </label>
+        <label>입실일
+          <input type="date" id="begin" required />
+        </label>
+        <label>퇴실일
+          <input type="date" id="end" required />
+        </label>
+        <label class="chk">
+          <input type="checkbox" id="availableOnly" /> 예약가능만 보기
+        </label>
+        <div class="actions">
+          <button type="submit" id="searchBtn">🔍 조회</button>
+          <button type="button" id="watchBtn" class="secondary">🔔 이 조건 감시</button>
+        </div>
+      </form>
+      <p id="searchMeta" class="meta"></p>
+      <div id="results"></div>
+    </section>
+
+    <section class="card">
+      <h2>🔔 감시 목록 <button id="runBtn" class="mini">지금 확인</button></h2>
+      <p class="meta">활성 감시는 주기적으로 자동 조회되고, 빈자리가 생기면 알림을 보냅니다.</p>
+      <div id="watches"></div>
+    </section>
+
+    <section class="card">
+      <h2>📨 최근 알림</h2>
+      <div id="events"><p class="meta">아직 알림이 없습니다.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>데이터 출처: 숲나들e (foresttrip.go.kr) 비공식 조회 · 예약은 숲나들e에서 진행됩니다.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "campseek",
+  "version": "0.1.0",
+  "description": "숲나들e 자연휴양림(숲속의 집/야영장) 빈자리 조회 및 알림 웹앱",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "forests": "node server/forestClient.js"
+  },
+  "dependencies": {}
+}
