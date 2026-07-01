@@ -101,37 +101,63 @@ CLI로 클라이언트만 점검: `npm run forests`
 
 ---
 
-## 배포: GitHub Pages + Actions (서버리스)
+## 배포: 로컬 스케줄러 + GitHub Pages
 
-GitHub만으로 배포하는 방식입니다. **GitHub Actions(cron)** 가 서버 대신 주기적으로
-숲나들e를 조회해 알림을 보내고, 결과를 **GitHub Pages** 대시보드로 보여줍니다.
-(브라우저에서 숲나들e 직접 호출은 CORS로 막히므로, 조회는 Actions 러너에서 수행합니다.)
+> ⚠️ **왜 GitHub Actions에서 조회하지 않나?**
+> 숲나들e(정부 사이트)는 **GitHub Actions 러너(해외/Azure IP)의 접속을 차단**합니다
+> (`UND_ERR_CONNECT_TIMEOUT`). 그래서 조회는 반드시 **한국에서 접속 가능한 머신**(예: 집의 Mac)에서
+> 수행하고, 결과만 GitHub Pages로 배포합니다.
+
+**동작 구조**
+```
+[내 Mac(한국)]  launchd 30분마다
+   └ scripts/publish.sh
+       ├ 숲나들e 조회 + (빈자리 시) 텔레그램/웹훅 알림
+       ├ site/data/availability.json 갱신
+       └ 변화 있으면 main 에 push
+[GitHub Actions] site/** push 감지 → 정적 대시보드를 Pages 배포
+[GitHub Pages]   https://heekeunlee.github.io/campseek/  ← 대시보드
+```
 
 **설정 순서**
-1. 감시 조건 편집: `config/watches.json` 수정 후 커밋
-2. (선택) 알림: 저장소 **Settings → Secrets and variables → Actions** 에 추가
-   - `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` 또는 `NOTIFY_WEBHOOK_URL`
-3. **Settings → Pages → Source: GitHub Actions** 로 설정
-4. `.github/workflows/pages.yml` 이 30분마다 자동 실행 (수동 실행: Actions 탭 → Run workflow)
-5. 대시보드: `https://heekeunlee.github.io/campseek/`
+1. 감시 조건 편집: `config/watches.json` 수정
+2. (선택) 알림: `cp .env.example .env` 후 `TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` 또는 `NOTIFY_WEBHOOK_URL` 설정
+3. 스케줄러 설치 (30분 주기, macOS launchd):
+   ```bash
+   cp deploy/com.campseek.snapshot.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/com.campseek.snapshot.plist
+   ```
+   - 해제: `launchctl unload ~/Library/LaunchAgents/com.campseek.snapshot.plist`
+   - 로그: `data/publish.log`
+   - 수동 1회 실행: `bash scripts/publish.sh`
+4. GitHub 저장소 **Settings → Pages → Source: GitHub Actions** (최초 1회)
 
-> 스케줄은 UTC 기준이며 GitHub 사정에 따라 지연될 수 있습니다.
-> 임의 조건 **실시간 검색 UI**는 서버가 필요하므로 로컬 `npm start` 로 사용하세요.
-> 상시 실행 서버 배포가 필요하면 저장소의 `Dockerfile` / `render.yaml` 을 사용하세요.
+> Mac이 켜져 있을 때만 갱신/알림됩니다(슬립 중엔 건너뜀).
+> 임의 조건 **실시간 검색 UI**는 로컬 `npm start` 로 사용하세요.
+> 24시간 공개 서비스가 필요하면 **한국 리전** 서버(VPS)에 `Dockerfile`/`render.yaml`로 배포하세요.
+> (해외 리전 호스팅은 위와 같은 이유로 차단될 수 있습니다.)
 
 ## 프로젝트 구조
 
 ```
 campseek/
-├─ server/
-│  ├─ index.js          # HTTP 서버 + REST API
-│  ├─ forestClient.js   # 숲나들e 내부 API 클라이언트 + HTML 파서
-│  ├─ openApiClient.js  # (옵션) 공식 OpenAPI
-│  ├─ store.js          # 감시 저장(JSON)
-│  ├─ watcher.js        # 감시 폴링 루프
-│  └─ notify.js         # 알림 채널
-├─ public/              # 웹 UI (index.html/app.js/style.css)
-├─ data/watches.json    # 감시 데이터(자동 생성)
+├─ server/               # 로컬 실시간 서버 (npm start)
+│  ├─ index.js           # HTTP 서버 + REST API
+│  ├─ forestClient.js    # 숲나들e 내부 API 클라이언트 + HTML 파서
+│  ├─ openApiClient.js   # (옵션) 공식 OpenAPI
+│  ├─ store.js           # 감시 저장(JSON)
+│  ├─ watcher.js         # 감시 폴링 루프
+│  └─ notify.js          # 알림 채널
+├─ scripts/
+│  ├─ snapshot.js        # 조회+알림+대시보드 JSON 생성
+│  └─ publish.sh         # snapshot 실행 → 변화 시 main push (배포)
+├─ config/watches.json   # gh-pages 대시보드용 감시 조건
+├─ site/                 # 정적 대시보드 (Pages 배포 대상)
+├─ public/               # 로컬 서버용 웹 UI
+├─ deploy/
+│  ├─ com.campseek.snapshot.plist  # launchd 30분 스케줄러
+│  └─ (Dockerfile·render.yaml 는 루트)
+├─ .github/workflows/pages.yml     # 정적 배포 전용
 └─ .env.example
 ```
 
