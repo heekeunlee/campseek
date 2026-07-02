@@ -7,7 +7,16 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 DATA="site/data/availability.json"
+LOCK="data/.publish.lock"
 log() { echo "[$(date '+%F %T')] $*"; }
+
+# 동시 실행 방지(launchd + 수동/버튼). mkdir 은 원자적.
+mkdir -p data
+if ! mkdir "$LOCK" 2>/dev/null; then
+  log "다른 실행이 진행 중 — 건너뜀"
+  exit 0
+fi
+trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT
 
 # 1) 조회 + 알림 + 데이터 생성
 log "snapshot 실행"
@@ -22,7 +31,7 @@ if [ "$prev" = "$curr" ]; then
   exit 0
 fi
 
-git add "$DATA"
+git add -f "$DATA"
 git commit -q -m "chore(data): 빈자리 현황 갱신 $(date -u +%FT%TZ)"
 git push -q origin main
 log "main 푸시 완료 → Pages 배포 트리거"
