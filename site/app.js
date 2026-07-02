@@ -26,7 +26,59 @@ async function init() {
     `최근 갱신: <b>${new Date(DATA.generatedAt).toLocaleString('ko-KR')}</b> · ` + $('foot').innerHTML;
 
   $('searchBtn').addEventListener('click', doSearch);
+  $('refreshBtn').addEventListener('click', doRefresh);
   $('meta').textContent = '지역·시설·날짜를 고르고 [조회]를 누르세요.';
+}
+
+// 데이터 다시 불러와 현재 선택 조건으로 재렌더
+async function reloadData(keepView) {
+  const res = await fetch('./data/availability.json?_=' + Date.now());
+  if (!res.ok) throw new Error('데이터 로드 실패');
+  DATA = await res.json();
+  if (keepView && $('date').value) doSearch();
+}
+
+// "🔄 지금 업데이트": 로컬 서버(한국)면 실시간 재조회+배포, 정적 사이트면 최신 스냅샷 재로드
+let polling = null;
+async function doRefresh() {
+  const btn = $('refreshBtn');
+  const msg = $('refreshMsg');
+  btn.disabled = true;
+  msg.textContent = '요청 중…';
+  try {
+    const r = await fetch('/api/refresh', { method: 'POST' });
+    if (!r.ok && r.status !== 409) throw new Error('server ' + r.status);
+    // 로컬 서버 존재 → 실시간 조회 진행. 상태 폴링.
+    msg.textContent = '⏳ 실시간 조회 중… (전 지역/주말, 수 분 소요)';
+    clearInterval(polling);
+    polling = setInterval(async () => {
+      try {
+        const s = await (await fetch('/api/refresh')).json();
+        if (s.running) {
+          msg.textContent = '⏳ 실시간 조회 중… ' + (s.message || '');
+        } else {
+          clearInterval(polling);
+          btn.disabled = false;
+          msg.textContent = (s.ok ? '✅ 업데이트 완료' : '⚠ ' + (s.message || '실패')) +
+            (s.generatedAt ? ' · ' + new Date(s.generatedAt).toLocaleString('ko-KR') : '');
+          await reloadData(true);
+        }
+      } catch {
+        clearInterval(polling); btn.disabled = false;
+      }
+    }, 3000);
+  } catch {
+    // 정적 gh-pages: 서버가 없음 → 최신 스냅샷만 다시 불러옴
+    try {
+      await reloadData(true);
+      msg.textContent = 'ℹ 공개 사이트에서는 실시간 조회가 불가합니다. 최신 스냅샷을 불러왔습니다' +
+        (DATA?.generatedAt ? ' (' + new Date(DATA.generatedAt).toLocaleString('ko-KR') + ')' : '') +
+        '. 실시간 갱신은 로컬 실행(README) 후 이용하세요.';
+    } catch (e) {
+      msg.textContent = '새로고침 실패: ' + e.message;
+    }
+    btn.disabled = false;
+  }
 }
 
 function doSearch() {

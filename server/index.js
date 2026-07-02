@@ -5,6 +5,7 @@ try { process.loadEnvFile(new URL('../.env', import.meta.url)); } catch { /* .en
 import { readFile, stat } from 'node:fs/promises';
 import { join, dirname, extname, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawn } from 'node:child_process';
 
 import { getForests, getRegions, search, SECTION } from './forestClient.js';
 import { listWatches, addWatch, updateWatch, removeWatch, getWatch } from './store.js';
@@ -13,8 +14,41 @@ import { recentEvents } from './notify.js';
 import { isConfigured as openApiReady, getReservations } from './openApiClient.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const PUBLIC = join(__dirname, '..', 'public');
+const ROOT = join(__dirname, '..');
+const PUBLIC = join(ROOT, 'public');
+const BOARD = join(ROOT, 'site'); // 버튼 조회형 대시보드 (gh-pages와 동일)
 const PORT = Number(process.env.PORT || 3000);
+
+// 실시간 전체 업데이트(publish.sh) 실행 상태
+const refresh = { running: false, startedAt: null, finishedAt: null, ok: null, message: '' };
+
+function runRefresh() {
+  if (refresh.running) return false;
+  refresh.running = true;
+  refresh.startedAt = new Date().toISOString();
+  refresh.finishedAt = null;
+  refresh.ok = null;
+  refresh.message = '실시간 조회 중…';
+  const child = spawn('bash', [join(ROOT, 'scripts', 'publish.sh')], { cwd: ROOT, env: process.env });
+  let tail = '';
+  const grab = (d) => { tail = (tail + d.toString()).slice(-2000); };
+  child.stdout.on('data', grab);
+  child.stderr.on('data', grab);
+  child.on('close', (code) => {
+    refresh.running = false;
+    refresh.finishedAt = new Date().toISOString();
+    refresh.ok = code === 0;
+    const last = tail.trim().split('\n').slice(-3).join(' | ');
+    refresh.message = code === 0 ? `완료: ${last}` : `실패(code ${code}): ${last}`;
+  });
+  child.on('error', (e) => {
+    refresh.running = false;
+    refresh.finishedAt = new Date().toISOString();
+    refresh.ok = false;
+    refresh.message = '실행 오류: ' + e.message;
+  });
+  return true;
+}
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -47,9 +81,16 @@ function validDate(d) {
 }
 
 async function serveStatic(req, res, pathname) {
-  let rel = pathname === '/' ? '/index.html' : pathname;
-  const filePath = normalize(join(PUBLIC, rel));
-  if (!filePath.startsWith(PUBLIC)) return json(res, 403, { error: 'forbidden' });
+  // /board* → site/ 대시보드, 그 외 → public/ (실시간 검색 UI)
+  let base = PUBLIC;
+  let rel = pathname;
+  if (pathname === '/board' || pathname.startsWith('/board/')) {
+    base = BOARD;
+    rel = pathname.slice('/board'.length) || '/';
+  }
+  if (rel === '/' || rel === '') rel = '/index.html';
+  const filePath = normalize(join(base, rel));
+  if (!filePath.startsWith(base)) return json(res, 403, { error: 'forbidden' });
   try {
     const s = await stat(filePath);
     if (!s.isFile()) throw new Error('not file');
@@ -129,6 +170,24 @@ const server = createServer(async (req, res) => {
       // 최근 알림 이벤트
       if (p === '/api/events' && req.method === 'GET') {
         return json(res, 200, recentEvents());
+      }
+
+      // 실시간 전체 업데이트: 숲나들e를 지금 조회 → 스냅샷 갱신 → gh-pages 배포
+      if (p === '/api/refresh' && req.method === 'POST') {
+        const started = runRefresh();
+        return json(res, started ? 202 : 409, {
+          started,
+          running: refresh.running,
+          message: started ? '실시간 업데이트 시작' : '이미 실행 중',
+        });
+      }
+      if (p === '/api/refresh' && req.method === 'GET') {
+        let generatedAt = null;
+        try {
+          const j = JSON.parse(await readFile(join(BOARD, 'data', 'availability.json'), 'utf8'));
+          generatedAt = j.generatedAt;
+        } catch { /* 없음 */ }
+        return json(res, 200, { ...refresh, generatedAt });
       }
 
       // [옵션] 공식 OpenAPI: 국립자연휴양림 예약정보 (교차검증용)
