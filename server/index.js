@@ -12,7 +12,7 @@ import { listWatches, addWatch, updateWatch, removeWatch, getWatch } from './sto
 import { startWatcher, runOnce } from './watcher.js';
 import { recentEvents } from './notify.js';
 import { isConfigured as openApiReady, getReservations } from './openApiClient.js';
-import { getForestFee, infoPageUrl } from './forestFee.js';
+import { infoPageUrl } from './forestFee.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -133,18 +133,9 @@ const server = createServer(async (req, res) => {
           section,
           availableOnly: q.get('availableOnly') === 'true',
         });
-        // 인원 안내 페이지 링크 + 대표 요금대 (국립=정확, 공립/사립=참고)
+        // 섹션별 인원(몇인실) 안내 페이지 링크 보강
         const sectCode = q.get('section') === '02' ? '02' : '01';
         for (const r of results) {
-          const fee = await getForestFee(r.insttId);
-          r.priceRange = null;
-          r.priceApprox = false;
-          if (fee) {
-            const sect = sectCode === '02' ? fee.camp : fee.house;
-            if (r.type === '국립' && sect) r.priceRange = sect;
-            else if (sect) { r.priceRange = sect; r.priceApprox = true; }
-            else if (fee.overall) { r.priceRange = fee.overall; r.priceApprox = true; }
-          }
           r.infoUrl = infoPageUrl(r.insttId, sectCode) || r.url || null;
         }
         return json(res, 200, { count: results.length, results });

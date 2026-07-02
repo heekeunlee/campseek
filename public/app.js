@@ -7,12 +7,6 @@ const api = async (url, opts) => {
 const ymd = (v) => (v || '').replaceAll('-', ''); // yyyy-mm-dd → yyyymmdd
 const dashed = (v) => (v && v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6)}` : v);
 const sectionNm = (s) => (s === '02' ? '야영장' : '숲속의 집');
-const won = (pr, approx) => {
-  if (!pr || pr.min == null) return '<span style="color:#aaa">—</span>';
-  const f = (n) => (Math.round(n / 1000) / 10).toString().replace(/\.0$/, '');
-  const val = pr.min === pr.max ? `${f(pr.min)}만원` : `${f(pr.min)}~${f(pr.max)}만원`;
-  return approx ? `${val} <span class="approx" title="공립/사립 또는 전체범위 — 참고용">참고</span>` : val;
-};
 
 let FORESTS = [];
 
@@ -98,16 +92,14 @@ function renderResults(results) {
       <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span></td>
       <td>${cnt}</td>
       <td>${fac}</td>
-      <td>${won(r.priceRange, r.priceApprox)}</td>
-      <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실 등 인원 정보 페이지">인원·요금 ↗</a></td>
+      <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실 등 인원 정보 페이지">인원정보 ↗</a></td>
       <td><a class="book" href="${r.reserveUrl}" target="_blank" rel="noopener">예약↗</a></td>
     </tr>`;
   }).join('');
   const facHead = $('section').value === '02' ? '야영장 수' : '객실 수';
   $('results').innerHTML = `<table>
-    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>대표요금<sup title="국립 표준요금(비수기주중~성수기주말)">*</sup></th><th>인원·요금</th><th></th></tr></thead>
-    <tbody>${rows}</tbody></table>
-    <p class="meta">* 대표요금: 국립=이용요금표(비수기주중~성수기주말), 공립/사립='참고'(전체 범위·부정확 가능). 정확한 값은 인원·요금 링크에서 확인.</p>`;
+    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>인원정보</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
 }
 
 // ---- 감시 ----
