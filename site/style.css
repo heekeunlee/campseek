@@ -22,3 +22,4 @@ tr.has{background:#f1f8f1;}
 .book:hover{text-decoration:underline;}
 .note{font-size:13px;color:#444;} .note code{background:#eef2ee;padding:1px 5px;border-radius:4px;}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:20px;} footer a{color:var(--green-d);}
+.contact{font-size:11px;color:#aab0aa;margin-top:6px;}

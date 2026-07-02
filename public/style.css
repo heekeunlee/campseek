@@ -75,4 +75,5 @@ a.book:hover { text-decoration: underline; }
 .pill.on { background: #e8f5e9; color: #2e7d32; }
 .pill.off { background: #eee; color: #888; }
 footer { text-align: center; color: var(--muted); font-size: 12px; padding: 20px; }
+footer .contact { font-size: 11px; color: #aab0aa; margin-top: 6px; }
 @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
