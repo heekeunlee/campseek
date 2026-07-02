@@ -84,6 +84,10 @@ async function run() {
             availableCount: r.availableCount,
             total: q.section === '02' ? r.totalCampsites : r.totalRooms,
             tel: r.tel,
+            // 공식 페이지(객실·요금 안내). 사이트 제공 url 우선(공립/사립 전용 도메인), 없으면 국립(숫자 id) 단축링크
+            url: r.url && /^https?:\/\//.test(r.url)
+              ? r.url.replace(/^http:/, 'https:')
+              : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : ''),
           })),
       });
     } catch (e) {

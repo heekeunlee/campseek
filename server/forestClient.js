@@ -229,6 +229,7 @@ export function parseSearchResult(html, meta = {}) {
       section: meta.section || null,
       beginDate: meta.beginDate || null,
       endDate: meta.endDate || null,
+      url: m.url || '', // 휴양림 공식 페이지 (객실·요금 안내)
       reserveUrl: `${BASE}/rep/or/fcfsRsrvtMain.do?hmpgId=FRIP&menuId=001001`,
     });
   }

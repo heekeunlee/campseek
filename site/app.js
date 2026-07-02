@@ -106,7 +106,7 @@ function doSearch() {
   if (!rows.length) { $('results').innerHTML = '<p class="meta">조건에 맞는 시설이 없습니다.</p>'; return; }
   const facHead = section === '02' ? '야영장 수' : '객실 수';
   $('results').innerHTML = `<table>
-    <thead><tr><th>휴양림</th><th>지역</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th></th></tr></thead>
+    <thead><tr><th>휴양림</th><th>지역</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th>객실·요금</th><th></th></tr></thead>
     <tbody>${rows.map(rowHtml).join('')}</tbody></table>`;
 }
 
@@ -114,12 +114,14 @@ function rowHtml(r) {
   const has = (r.availableCount ?? 0) > 0;
   const cnt = r.availableCount == null ? '—'
     : `<span class="${has ? 'avail-ok' : 'avail-no'}">${has ? '가능 ' + r.availableCount : '마감'}</span>`;
+  const info = r.url || RESERVE_URL;
   return `<tr class="${has ? 'has-room' : ''}">
     <td>${r.name} <span class="badge ${r.type}">${r.type}</span></td>
     <td>${(r.regionName || '').replace(/^\s*/, '')}</td>
     <td>${cnt}</td>
     <td>${r.total ?? '—'}</td>
     <td>${r.tel || ''}</td>
+    <td><a class="book" href="${info}" target="_blank" rel="noopener" title="객실별 인원·요금은 공식 페이지에서 확인">인원·요금 ↗</a></td>
     <td><a class="book" href="${RESERVE_URL}" target="_blank" rel="noopener">예약↗</a></td>
   </tr>`;
 }

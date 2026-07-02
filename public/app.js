@@ -85,17 +85,21 @@ function renderResults(results) {
     const fac = $('section').value === '02'
       ? (r.totalCampsites != null ? r.totalCampsites + '개' : '—')
       : (r.totalRooms != null ? r.totalRooms + '개' : '—');
+    const info = r.url && /^https?:\/\//.test(r.url)
+      ? r.url.replace(/^http:/, 'https:')
+      : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : r.reserveUrl);
     return `<tr class="${has ? 'has-room' : ''}">
       <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span></td>
       <td>${cnt}</td>
       <td>${fac}</td>
       <td>${r.tel || ''}</td>
+      <td><a class="book" href="${info}" target="_blank" rel="noopener" title="객실별 인원·요금은 공식 페이지에서 확인">인원·요금 ↗</a></td>
       <td><a class="book" href="${r.reserveUrl}" target="_blank" rel="noopener">예약↗</a></td>
     </tr>`;
   }).join('');
   const facHead = $('section').value === '02' ? '야영장 수' : '객실 수';
   $('results').innerHTML = `<table>
-    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th></th></tr></thead>
+    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th>객실·요금</th><th></th></tr></thead>
     <tbody>${rows}</tbody></table>`;
 }
 
