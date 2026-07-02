@@ -1,45 +1,75 @@
-const dashed = (v) => (v && v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6)}` : v);
+const $ = (id) => document.getElementById(id);
 const RESERVE_URL = 'https://www.foresttrip.go.kr/rep/or/fcfsRsrvtMain.do?hmpgId=FRIP&menuId=001001';
+const dashed = (v) => (v && v.length === 8 ? `${v.slice(4, 6)}/${v.slice(6)}` : v);
+const wday = (v) => ['일', '월', '화', '수', '목', '금', '토'][new Date(+v.slice(0,4), +v.slice(4,6)-1, +v.slice(6)).getDay()];
 
-async function load() {
+let DATA = null;
+
+async function init() {
   try {
     const res = await fetch('./data/availability.json?_=' + Date.now());
-    if (!res.ok) throw new Error('데이터 없음 (아직 첫 갱신 전일 수 있어요)');
-    const { generatedAt, snapshots } = await res.json();
-    document.getElementById('meta').textContent =
-      '최근 갱신: ' + new Date(generatedAt).toLocaleString('ko-KR');
-    render(snapshots);
+    if (!res.ok) throw new Error('데이터가 아직 없습니다 (첫 갱신 전).');
+    DATA = await res.json();
   } catch (e) {
-    document.getElementById('meta').textContent = e.message;
+    $('meta').textContent = e.message;
+    return;
   }
+
+  // 셀렉트 채우기
+  const opt = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; return o; };
+  $('region').appendChild(opt('', '전체 지역'));
+  DATA.regions.forEach((r) => $('region').appendChild(opt(r.arcd, r.name)));
+  (DATA.sections || []).forEach((s) => $('section').appendChild(opt(s.code, s.name)));
+  (DATA.dates || []).forEach((d) => $('date').appendChild(opt(d, `${dashed(d)}(${wday(d)}) 1박`)));
+
+  $('foot').innerHTML =
+    `최근 갱신: <b>${new Date(DATA.generatedAt).toLocaleString('ko-KR')}</b> · ` + $('foot').innerHTML;
+
+  $('searchBtn').addEventListener('click', doSearch);
+  $('meta').textContent = '지역·시설·날짜를 고르고 [조회]를 누르세요.';
 }
 
-function render(snapshots) {
-  const board = document.getElementById('board');
-  if (!snapshots.length) { board.innerHTML = '<p class="meta">감시 조건이 없습니다.</p>'; return; }
-  board.innerHTML = snapshots.map((s) => {
-    const has = (s.availableCount || 0) > 0;
-    const head = `<div class="card">
-      <div class="ch">
-        <h2>${s.label || '(무제목)'} <span class="tag">${s.sectionName}</span></h2>
-        <span class="status ${has ? 'ok' : 'no'}">${has ? '예약가능 ' + s.availableCount : '빈자리 없음'}</span>
-      </div>
-      <p class="meta">${dashed(s.beginDate)} ~ ${dashed(s.endDate)}${s.error ? ' · ⚠ ' + s.error : ''}</p>`;
-    const rows = (s.results || []).map((r) => {
-      const rh = (r.availableCount ?? 0) > 0;
-      return `<tr class="${rh ? 'has' : ''}">
-        <td>${r.name} <span class="badge ${r.type}">${r.type}</span></td>
-        <td class="${rh ? 'avail-ok' : 'avail-no'}">${r.availableCount == null ? '—' : (rh ? '가능 ' + r.availableCount : '마감')}</td>
-        <td>${r.total ?? '—'}</td>
-        <td>${r.tel || ''}</td>
-      </tr>`;
-    }).join('');
-    const table = rows
-      ? `<table><thead><tr><th>휴양림</th><th>빈자리</th><th>총수</th><th>전화</th></tr></thead><tbody>${rows}</tbody></table>`
-      : '<p class="meta">결과 없음</p>';
-    return head + table + `<a class="book" href="${RESERVE_URL}" target="_blank" rel="noopener">숲나들e에서 예약 ↗</a></div>`;
-  }).join('');
+function doSearch() {
+  if (!DATA) return;
+  const arcd = $('region').value;
+  const section = $('section').value;
+  const date = $('date').value;
+  const onlyAvail = $('availableOnly').checked;
+
+  // 조건에 맞는 스냅샷 선택 (지역 전체면 모든 지역 합침)
+  let snaps = DATA.snapshots.filter((s) => s.section === section && s.beginDate === date);
+  if (arcd) snaps = snaps.filter((s) => s.arcd === arcd);
+  if (!snaps.length) { $('meta').textContent = '해당 조건의 데이터가 없습니다.'; $('results').innerHTML = ''; return; }
+
+  // 결과 합치기 (지역명 부여)
+  let rows = [];
+  for (const s of snaps) for (const r of s.results) rows.push({ ...r, regionName: s.regionName });
+  if (onlyAvail) rows = rows.filter((r) => (r.availableCount ?? 0) > 0);
+  rows.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
+
+  const secNm = (DATA.sections.find((x) => x.code === section) || {}).name || '';
+  const availN = rows.filter((r) => (r.availableCount ?? 0) > 0).length;
+  $('meta').textContent = `${secNm} · ${dashed(date)}(${wday(date)}) · ${rows.length}개 시설 · 예약가능 ${availN}곳`;
+
+  if (!rows.length) { $('results').innerHTML = '<p class="meta">조건에 맞는 시설이 없습니다.</p>'; return; }
+  const facHead = section === '02' ? '야영장 수' : '객실 수';
+  $('results').innerHTML = `<table>
+    <thead><tr><th>휴양림</th><th>지역</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th></th></tr></thead>
+    <tbody>${rows.map(rowHtml).join('')}</tbody></table>`;
 }
 
-load();
-setInterval(load, 60000);
+function rowHtml(r) {
+  const has = (r.availableCount ?? 0) > 0;
+  const cnt = r.availableCount == null ? '—'
+    : `<span class="${has ? 'avail-ok' : 'avail-no'}">${has ? '가능 ' + r.availableCount : '마감'}</span>`;
+  return `<tr class="${has ? 'has-room' : ''}">
+    <td>${r.name} <span class="badge ${r.type}">${r.type}</span></td>
+    <td>${(r.regionName || '').replace(/^\s*/, '')}</td>
+    <td>${cnt}</td>
+    <td>${r.total ?? '—'}</td>
+    <td>${r.tel || ''}</td>
+    <td><a class="book" href="${RESERVE_URL}" target="_blank" rel="noopener">예약↗</a></td>
+  </tr>`;
+}
+
+init();

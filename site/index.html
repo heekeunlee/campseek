@@ -3,28 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🌲 campseek — 자연휴양림 빈자리 대시보드</title>
+  <title>🌲 campseek — 자연휴양림 빈자리 조회</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <header>
     <h1>🌲 campseek</h1>
-    <p class="sub">숲나들e 자연휴양림 빈자리 대시보드 · GitHub Actions가 주기적으로 자동 갱신</p>
+    <p class="sub">숲나들e 자연휴양림 · 숲속의 집 &amp; 야영장 빈자리 조회</p>
   </header>
+
   <main>
-    <p id="meta" class="meta">불러오는 중…</p>
-    <div id="board"></div>
-    <section class="card note">
-      <b>ℹ️ 이 페이지는 정적 대시보드입니다.</b>
-      <p>감시 조건은 저장소의 <code>config/watches.json</code> 을 수정해 커밋하면 반영됩니다.
-      빈자리가 생기면 (설정 시) 텔레그램/웹훅으로 알림이 갑니다.
-      임의 조건 실시간 검색은 로컬에서 <code>npm start</code> 로 사용하세요.</p>
+    <section class="card">
+      <h2>빈자리 조회</h2>
+      <div class="grid">
+        <label>지역
+          <select id="region"></select>
+        </label>
+        <label>시설
+          <select id="section"></select>
+        </label>
+        <label>날짜(주말)
+          <select id="date"></select>
+        </label>
+        <label class="chk">
+          <input type="checkbox" id="availableOnly" checked /> 예약가능만 보기
+        </label>
+        <div class="actions">
+          <button type="button" id="searchBtn">🔍 조회</button>
+        </div>
+      </div>
+      <p id="meta" class="meta">불러오는 중…</p>
+      <div id="results"></div>
     </section>
   </main>
+
   <footer>
-    <p>데이터 출처: 숲나들e (foresttrip.go.kr) · 예약은 숲나들e에서 진행 ·
+    <p id="foot">데이터 출처: 숲나들e (foresttrip.go.kr) · 예약은 숲나들e에서 진행 ·
     <a href="https://github.com/heekeunlee/campseek">GitHub</a></p>
   </footer>
+
   <script src="./app.js"></script>
 </body>
 </html>

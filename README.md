@@ -112,12 +112,32 @@ CLI로 클라이언트만 점검: `npm run forests`
 ```
 [내 Mac(한국)]  launchd 30분마다
    └ scripts/publish.sh
-       ├ 숲나들e 조회 + (빈자리 시) 텔레그램/웹훅 알림
-       ├ site/data/availability.json 갱신
+       ├ config/watches.json 의 지역×시설×주말을 미리 조회
+       ├ alerts 조건에 빈자리 뜨면 텔레그램/웹훅 알림
+       ├ site/data/availability.json 갱신 (전 조건 스냅샷)
        └ 변화 있으면 main 에 push
 [GitHub Actions] site/** push 감지 → 정적 대시보드를 Pages 배포
 [GitHub Pages]   https://heekeunlee.github.io/campseek/  ← 대시보드
 ```
+
+대시보드에서 **지역·시설·날짜를 고르고 [조회]** 를 누르면 미리 받아둔 스냅샷을
+필터링해 목록을 즉시 보여줍니다. (정적 페이지라 브라우저가 직접 조회하지 않음)
+
+**config/watches.json**
+```jsonc
+{
+  "dashboard": {                    // 대시보드에서 볼 조건 (미리 조회됨)
+    "regions": ["1","2",...,"9"],   // 지역코드
+    "sections": ["01","02"],        // 01숲속의집 02야영장
+    "dates": "weekends-2months"     // 이번+다음달 주말 자동
+  },
+  "alerts": [                       // 빈자리 뜨면 알림받을 특정 조건
+    { "label":"대관령 8/15", "arcd":"2", "insttId":"0111",
+      "beginDate":"20260815", "endDate":"20260816", "section":"01" }
+  ]
+}
+```
+insttId 는 대시보드 목록/`npm run forests` 로 확인합니다.
 
 **설정 순서**
 1. 감시 조건 편집: `config/watches.json` 수정
