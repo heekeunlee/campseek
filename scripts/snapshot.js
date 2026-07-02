@@ -8,6 +8,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { search, getRegions, SECTION } from '../server/forestClient.js';
 import { notifyAvailability } from '../server/notify.js';
+import { getNationalFee, infoPageUrl } from '../server/nationalFee.js';
 
 // .env 로드 (알림 설정: launchd/cron 환경에서도 동작하도록)
 try { process.loadEnvFile(new URL('../.env', import.meta.url)); } catch { /* .env 없음 */ }
@@ -69,6 +70,27 @@ async function run() {
         section: q.section === '02' ? SECTION.CAMP : SECTION.HOUSE,
       });
       const hits = results.filter((r) => (r.availableCount ?? 0) > 0);
+      const sorted = results.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
+      const mapped = [];
+      for (const r of sorted) {
+        // 공식 홈페이지: 사이트 제공 url 우선(공립/사립 전용도메인), 없으면 국립 단축링크
+        const homeUrl = r.url && /^https?:\/\//.test(r.url)
+          ? r.url.replace(/^http:/, 'https:')
+          : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : '');
+        // 국립(숫자 id): 로그인 없이 인원 페이지 + 대표 요금대 확보
+        const fee = await getNationalFee(r.insttId); // 비국립/실패 시 null
+        const priceRange = fee ? (q.section === '02' ? fee.camp : fee.house) : null;
+        const infoUrl = infoPageUrl(r.insttId, q.section) || homeUrl;
+        mapped.push({
+          insttId: r.insttId, name: r.name, type: r.type,
+          availableCount: r.availableCount,
+          total: q.section === '02' ? r.totalCampsites : r.totalRooms,
+          tel: r.tel,
+          url: homeUrl,       // 공식 홈페이지
+          infoUrl,            // 인원(몇인실) 안내 페이지 (국립=섹션별, 그 외=홈페이지)
+          priceRange,         // 국립 대표 요금대 {min,max} | null
+        });
+      }
       snapshots.push({
         arcd: q.arcd,
         regionName: regionName[q.arcd] || q.arcd,
@@ -77,18 +99,7 @@ async function run() {
         beginDate: q.beginDate,
         endDate: q.endDate,
         availableCount: hits.reduce((s, h) => s + (h.availableCount || 0), 0),
-        results: results
-          .sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0))
-          .map((r) => ({
-            insttId: r.insttId, name: r.name, type: r.type,
-            availableCount: r.availableCount,
-            total: q.section === '02' ? r.totalCampsites : r.totalRooms,
-            tel: r.tel,
-            // 공식 페이지(객실·요금 안내). 사이트 제공 url 우선(공립/사립 전용 도메인), 없으면 국립(숫자 id) 단축링크
-            url: r.url && /^https?:\/\//.test(r.url)
-              ? r.url.replace(/^http:/, 'https:')
-              : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : ''),
-          })),
+        results: mapped,
       });
     } catch (e) {
       const detail = e.cause ? ` (${e.cause.code || e.cause.message})` : '';

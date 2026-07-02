@@ -12,6 +12,7 @@ import { listWatches, addWatch, updateWatch, removeWatch, getWatch } from './sto
 import { startWatcher, runOnce } from './watcher.js';
 import { recentEvents } from './notify.js';
 import { isConfigured as openApiReady, getReservations } from './openApiClient.js';
+import { getNationalFee, infoPageUrl } from './nationalFee.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -132,6 +133,13 @@ const server = createServer(async (req, res) => {
           section,
           availableOnly: q.get('availableOnly') === 'true',
         });
+        // 국립: 인원 안내 페이지 링크 + 대표 요금대 보강
+        const sectCode = q.get('section') === '02' ? '02' : '01';
+        for (const r of results) {
+          const fee = await getNationalFee(r.insttId);
+          r.priceRange = fee ? (sectCode === '02' ? fee.camp : fee.house) : null;
+          r.infoUrl = infoPageUrl(r.insttId, sectCode) || r.url || null;
+        }
         return json(res, 200, { count: results.length, results });
       }
 

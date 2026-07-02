@@ -7,6 +7,11 @@ const api = async (url, opts) => {
 const ymd = (v) => (v || '').replaceAll('-', ''); // yyyy-mm-dd → yyyymmdd
 const dashed = (v) => (v && v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6)}` : v);
 const sectionNm = (s) => (s === '02' ? '야영장' : '숲속의 집');
+const won = (pr) => {
+  if (!pr || pr.min == null) return '<span style="color:#aaa">—</span>';
+  const f = (n) => (Math.round(n / 1000) / 10).toString().replace(/\.0$/, '');
+  return pr.min === pr.max ? `${f(pr.min)}만원` : `${f(pr.min)}~${f(pr.max)}만원`;
+};
 
 let FORESTS = [];
 
@@ -85,22 +90,23 @@ function renderResults(results) {
     const fac = $('section').value === '02'
       ? (r.totalCampsites != null ? r.totalCampsites + '개' : '—')
       : (r.totalRooms != null ? r.totalRooms + '개' : '—');
-    const info = r.url && /^https?:\/\//.test(r.url)
+    const info = r.infoUrl || (r.url && /^https?:\/\//.test(r.url)
       ? r.url.replace(/^http:/, 'https:')
-      : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : r.reserveUrl);
+      : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : r.reserveUrl));
     return `<tr class="${has ? 'has-room' : ''}">
       <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span></td>
       <td>${cnt}</td>
       <td>${fac}</td>
-      <td>${r.tel || ''}</td>
-      <td><a class="book" href="${info}" target="_blank" rel="noopener" title="객실별 인원·요금은 공식 페이지에서 확인">인원·요금 ↗</a></td>
+      <td>${won(r.priceRange)}</td>
+      <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실 등 인원 정보 페이지">인원·요금 ↗</a></td>
       <td><a class="book" href="${r.reserveUrl}" target="_blank" rel="noopener">예약↗</a></td>
     </tr>`;
   }).join('');
   const facHead = $('section').value === '02' ? '야영장 수' : '객실 수';
   $('results').innerHTML = `<table>
-    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>전화</th><th>객실·요금</th><th></th></tr></thead>
-    <tbody>${rows}</tbody></table>`;
+    <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>대표요금<sup title="국립 표준요금(비수기주중~성수기주말)">*</sup></th><th>인원·요금</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <p class="meta">* 대표요금은 국립휴양림만(비수기 주중~성수기 주말, 규모별 상이). 정확한 값은 인원·요금 링크에서 확인.</p>`;
 }
 
 // ---- 감시 ----
