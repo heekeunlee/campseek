@@ -8,7 +8,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { search, getRegions, SECTION } from '../server/forestClient.js';
 import { notifyAvailability } from '../server/notify.js';
-import { getNationalFee, infoPageUrl } from '../server/nationalFee.js';
+import { getForestFee, infoPageUrl } from '../server/forestFee.js';
 
 // .env 로드 (알림 설정: launchd/cron 환경에서도 동작하도록)
 try { process.loadEnvFile(new URL('../.env', import.meta.url)); } catch { /* .env 없음 */ }
@@ -77,9 +77,16 @@ async function run() {
         const homeUrl = r.url && /^https?:\/\//.test(r.url)
           ? r.url.replace(/^http:/, 'https:')
           : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : '');
-        // 국립(숫자 id): 로그인 없이 인원 페이지 + 대표 요금대 확보
-        const fee = await getNationalFee(r.insttId); // 비국립/실패 시 null
-        const priceRange = fee ? (q.section === '02' ? fee.camp : fee.house) : null;
+        // 로그인 없이 인원 페이지 + 대표 요금대 (국립=정확, 공립/사립=참고)
+        const fee = await getForestFee(r.insttId); // 실패/이미지페이지 시 null
+        let priceRange = null;
+        let priceApprox = false;
+        if (fee) {
+          const sect = q.section === '02' ? fee.camp : fee.house;
+          if (r.type === '국립' && sect) priceRange = sect; // 표준표 → 정확
+          else if (sect) { priceRange = sect; priceApprox = true; }
+          else if (fee.overall) { priceRange = fee.overall; priceApprox = true; } // 참고(전체 범위)
+        }
         const infoUrl = infoPageUrl(r.insttId, q.section) || homeUrl;
         mapped.push({
           insttId: r.insttId, name: r.name, type: r.type,
@@ -87,8 +94,9 @@ async function run() {
           total: q.section === '02' ? r.totalCampsites : r.totalRooms,
           tel: r.tel,
           url: homeUrl,       // 공식 홈페이지
-          infoUrl,            // 인원(몇인실) 안내 페이지 (국립=섹션별, 그 외=홈페이지)
-          priceRange,         // 국립 대표 요금대 {min,max} | null
+          infoUrl,            // 인원(몇인실) 안내 페이지 (섹션별)
+          priceRange,         // 대표 요금대 {min,max} | null
+          priceApprox,        // true면 참고(공립/사립 또는 전체범위)
         });
       }
       snapshots.push({
