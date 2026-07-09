@@ -7,7 +7,7 @@ const api = async (url, opts) => {
 const ymd = (v) => (v || '').replaceAll('-', ''); // yyyy-mm-dd → yyyymmdd
 const dashed = (v) => (v && v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6)}` : v);
 const sectionNm = (s) =>
-  s === '04' ? '숲이랑' : s === '03' ? '카라반' : s === '02' ? '야영장' : '숲속의 집';
+  s === '04' ? '숲체원' : s === '03' ? '카라반' : s === '02' ? '야영장' : '숲속의 집';
 
 let FORESTS = [];
 

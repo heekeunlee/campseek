@@ -26,7 +26,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ymd = (d) =>
   `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
 const sectionNm = (s) =>
-  s === '04' ? '숲이랑' : s === '03' ? '카라반' : s === '02' ? '야영장' : '숲속의 집';
+  s === '04' ? '숲체원' : s === '03' ? '카라반' : s === '02' ? '야영장' : '숲속의 집';
 
 // 오늘부터 이번달+다음달의 주말(토·일 각 1박) 입실일 목록 생성
 //  - 토요일 입실(토→일), 일요일 입실(일→월) 모두 포함
