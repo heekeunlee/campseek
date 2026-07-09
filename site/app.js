@@ -221,7 +221,11 @@ function doSearch() {
   let rows = [];
   for (const s of snaps) for (const r of s.results) rows.push({ ...r, regionName: s.regionName });
   if (onlyAvail) rows = rows.filter((r) => (r.availableCount ?? 0) > 0);
-  rows.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
+  // 지역명 가나다순 정렬 (같은 지역 내에서는 빈자리 많은 순)
+  rows.sort((a, b) => {
+    const r = (a.regionName || '').trim().localeCompare((b.regionName || '').trim(), 'ko');
+    return r !== 0 ? r : (b.availableCount || 0) - (a.availableCount || 0);
+  });
 
   const availN = rows.filter((r) => (r.availableCount ?? 0) > 0).length;
   $('meta').textContent = `${secNm} · ${dashed(date)}(${wday(date)}) 1박 · ${rows.length}개 시설 · 예약가능 ${availN}곳`;
