@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 로컬 스케줄러: 30분마다 숲나들e 조회 → 알림 → gh-pages 배포.
+<!-- 로컬 스케줄러: 매시 :00·:30 (30분마다) 숲나들e 조회 → 알림 → gh-pages 배포.
+     StartCalendarInterval 은 StartInterval 과 달리, 절전(sleep) 중 지나간 실행 시각을
+     깨어날 때 한 번 자동으로 따라잡는다(여러 번 놓쳐도 1회로 합쳐 실행).
      설치:  cp deploy/com.campseek.snapshot.plist ~/Library/LaunchAgents/
             launchctl load ~/Library/LaunchAgents/com.campseek.snapshot.plist
      해제:  launchctl unload ~/Library/LaunchAgents/com.campseek.snapshot.plist
@@ -25,8 +27,12 @@
     <string>/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
   </dict>
 
-  <key>StartInterval</key>
-  <integer>1800</integer>
+  <!-- 매시 :00, :30 실행. 절전 중 놓친 시각은 깨어날 때 1회 따라잡음(launchd 기본 동작). -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Minute</key><integer>30</integer></dict>
+  </array>
 
   <key>RunAtLoad</key>
   <true/>
