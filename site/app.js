@@ -29,7 +29,7 @@ async function init() {
   $('region').addEventListener('change', renderCalendar);
   $('section').addEventListener('change', renderCalendar);
   $('availableOnly').addEventListener('change', () => { renderCalendar(); if (selectedDate) doSearch(); });
-  $('refreshBtn').addEventListener('click', doRefresh);
+  setupAdmin();
 
   // 기본 선택일: 오늘 이후의 첫 데이터 날짜
   const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -109,14 +109,56 @@ async function reloadData(keepView) {
   const res = await fetch('./data/availability.json?_=' + Date.now());
   if (!res.ok) throw new Error('데이터 로드 실패');
   DATA = await res.json();
+  const gen = $('adminGen'); if (gen) gen.textContent = new Date(DATA.generatedAt).toLocaleString('ko-KR');
   renderCalendar();
   if (keepView && selectedDate) doSearch();
 }
 
+// ---- 관리자 모드 (제목 5연속 클릭 → PIN → 패널) ----
+const ADMIN_PIN = '0001';
+function setupAdmin() {
+  const title = $('title');
+  if (!title) return;
+  let clicks = 0, timer = null;
+  title.style.cursor = 'default';
+  title.addEventListener('click', () => {
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(() => { clicks = 0; }, 1500); // 1.5초 내 5연속
+    if (clicks >= 5) { clicks = 0; openAdmin(); }
+  });
+  $('adminClose').addEventListener('click', closeAdmin);
+  $('adminModal').addEventListener('click', (e) => { if (e.target === $('adminModal')) closeAdmin(); });
+  $('pinSubmit').addEventListener('click', checkPin);
+  $('pinInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') checkPin(); });
+  $('adminRefresh').addEventListener('click', doRefresh);
+}
+function openAdmin() {
+  $('adminPanel').hidden = true;
+  $('adminPin').hidden = false;
+  $('pinInput').value = '';
+  $('pinMsg').textContent = '';
+  $('adminModal').hidden = false;
+  setTimeout(() => $('pinInput').focus(), 50);
+}
+function closeAdmin() { $('adminModal').hidden = true; }
+function checkPin() {
+  if ($('pinInput').value === ADMIN_PIN) {
+    $('adminPin').hidden = true;
+    $('adminPanel').hidden = false;
+    $('adminGen').textContent = DATA ? new Date(DATA.generatedAt).toLocaleString('ko-KR') : '-';
+    $('adminMsg').textContent = '';
+  } else {
+    $('pinMsg').textContent = '❌ PIN이 올바르지 않습니다.';
+    $('pinInput').value = '';
+    $('pinInput').focus();
+  }
+}
+
 let polling = null;
 async function doRefresh() {
-  const btn = $('refreshBtn');
-  const msg = $('refreshMsg');
+  const btn = $('adminRefresh');
+  const msg = $('adminMsg');
   btn.disabled = true;
   msg.textContent = '요청 중…';
   try {

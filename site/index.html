@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>🌲 campseek</h1>
+    <h1 id="title" title="campseek">🌲 campseek</h1>
     <p class="sub">숲나들e 자연휴양림(숲속의 집·야영장·카라반) &amp; 숲이랑 산림복지시설(숲체원·산림치유원) 빈자리 조회</p>
   </header>
 
@@ -25,11 +25,7 @@
         <label class="chk">
           <input type="checkbox" id="availableOnly" checked /> 예약가능만 보기
         </label>
-        <div class="actions">
-          <button type="button" id="refreshBtn" class="secondary" title="숲나들e를 지금 다시 조회합니다">🔄 지금 업데이트</button>
-        </div>
       </div>
-      <p id="refreshMsg" class="meta refresh-msg"></p>
       <p class="cal-help meta">날짜 칸의 숫자 = 예약가능 <b>시설 수</b>. 날짜를 누르면 아래에 목록이 나옵니다.</p>
       <div id="calendar" class="calendar"></div>
       <p id="meta" class="meta">불러오는 중…</p>
@@ -42,6 +38,28 @@
     <a href="https://github.com/heekeunlee/campseek">GitHub</a></p>
     <p class="contact">문의 : 이희근 010-8949-0984, 문제시 삭제</p>
   </footer>
+
+  <!-- 관리자 모드 (제목 5번 클릭 → PIN) -->
+  <div id="adminModal" class="modal-overlay" hidden>
+    <div class="modal">
+      <button type="button" class="modal-x" id="adminClose" aria-label="닫기">✕</button>
+      <div id="adminPin">
+        <h3>🔒 관리자 인증</h3>
+        <p class="meta">PIN 번호를 입력하세요.</p>
+        <input type="password" inputmode="numeric" id="pinInput" maxlength="8" placeholder="••••" autocomplete="off" />
+        <p id="pinMsg" class="meta"></p>
+        <button type="button" id="pinSubmit">확인</button>
+      </div>
+      <div id="adminPanel" hidden>
+        <h3>🛠 관리자 모드</h3>
+        <p class="meta">최근 데이터 갱신: <b id="adminGen">-</b></p>
+        <button type="button" id="adminRefresh">🔄 지금 갱신</button>
+        <p id="adminMsg" class="meta refresh-msg"></p>
+        <p class="meta admin-note">※ 실시간 재조회(숲나들e 새로 조회)는 <b>한국의 로컬 서버</b>에서 열었을 때만 동작합니다.
+          공개 사이트에서는 최신 스냅샷만 다시 불러옵니다.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="./app.js"></script>
 </body>

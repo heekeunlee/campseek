@@ -61,5 +61,15 @@ tr.has{background:#f1f8f1;}
 .book{display:inline-block;margin-top:10px;color:var(--green-d);font-weight:600;text-decoration:none;}
 .book:hover{text-decoration:underline;}
 .note{font-size:13px;color:#444;} .note code{background:#eef2ee;padding:1px 5px;border-radius:4px;}
+/* ---- 관리자 모달 ---- */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;}
+.modal-overlay[hidden]{display:none;}
+.modal{background:#fff;border-radius:14px;padding:24px 22px;width:100%;max-width:340px;position:relative;box-shadow:0 12px 40px rgba(0,0,0,.25);}
+.modal h3{margin:0 0 10px;color:var(--green-d);font-size:18px;}
+.modal-x{position:absolute;top:10px;right:10px;background:transparent;color:var(--muted);border:0;font-size:16px;padding:4px 8px;cursor:pointer;font-weight:400;}
+.modal-x:hover{background:#f0f0f0;color:#333;}
+.modal input#pinInput{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:22px;text-align:center;letter-spacing:8px;margin:6px 0;}
+.modal button#pinSubmit,.modal button#adminRefresh{width:100%;margin-top:8px;padding:12px;font-size:15px;}
+.admin-note{font-size:11px;color:#9aa39a;margin-top:14px;line-height:1.5;}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:20px;} footer a{color:var(--green-d);}
 .contact{font-size:11px;color:#aab0aa;margin-top:6px;}
