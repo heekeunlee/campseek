@@ -8,6 +8,12 @@ const wday = (v) => WD[toDate(v).getDay()];
 let DATA = null;
 let selectedDate = null;
 
+// 상단(제목 아래) 최근 갱신 시각 표시
+function setUpdated() {
+  const el = $('updated');
+  if (el && DATA) el.innerHTML = `최근 갱신: <b>${new Date(DATA.generatedAt).toLocaleString('ko-KR')}</b>`;
+}
+
 async function init() {
   try {
     const res = await fetch('./data/availability.json?_=' + Date.now());
@@ -23,8 +29,7 @@ async function init() {
   DATA.regions.forEach((r) => $('region').appendChild(opt(r.arcd, r.name)));
   (DATA.sections || []).forEach((s) => $('section').appendChild(opt(s.code, s.name)));
 
-  $('foot').innerHTML =
-    `최근 갱신: <b>${new Date(DATA.generatedAt).toLocaleString('ko-KR')}</b> · ` + $('foot').innerHTML;
+  setUpdated();
 
   // '찾기' 버튼: 선택한 지역·시설로 달력/목록 갱신
   $('findBtn').addEventListener('click', () => { renderCalendar(); if (selectedDate) doSearch(); });
@@ -109,6 +114,7 @@ async function reloadData(keepView) {
   const res = await fetch('./data/availability.json?_=' + Date.now());
   if (!res.ok) throw new Error('데이터 로드 실패');
   DATA = await res.json();
+  setUpdated();
   const gen = $('adminGen'); if (gen) gen.textContent = new Date(DATA.generatedAt).toLocaleString('ko-KR');
   renderCalendar();
   if (keepView && selectedDate) doSearch();
