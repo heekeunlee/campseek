@@ -11,11 +11,13 @@ const UA =
   '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const SESSION_PAGE = `${BASE}/rep/or/fcfsRsrvtMain.do?hmpgId=FRIP&menuId=001001`;
 
-// 시설 구분 코드
+// 시설 구분 코드 (houseCampSctin)
 export const SECTION = {
   HOUSE: '01', // 숲속의 집 (숙박)
   CAMP: '02', // 야영장
 };
+// '카라반'은 별도 구분코드가 아니라 휴양림별 상품분류(goodsClssc, 이름에 카라반 포함)이며
+// 숙박(01)·야영(02) 양쪽에 걸쳐 존재 → search()의 houseClssc/campClssc 필터로 조회한다.
 
 // 휴양림 운영주체 코드
 export const INSTT_TYPE = {
@@ -120,6 +122,28 @@ export async function getForests() {
   return list;
 }
 
+/**
+ * 특정 휴양림의 상품분류(goodsClssc) 목록 — 숙박(01)·야영(02) 각각.
+ * (카라반 등 세부 시설 유형 식별에 사용. codeId는 휴양림마다 의미가 달라 이름으로 판별)
+ * @returns {Promise<{house:{codeId,codeNm}[], camp:{codeId,codeNm}[]}>}
+ */
+export async function getGoodsClssc(insttId) {
+  const out = { house: [], camp: [] };
+  for (const [key, up, trgt] of [
+    ['house', '01', 'objGsrm'],
+    ['camp', '02', 'objCmpgr'],
+  ]) {
+    const res = await api('/rep/cm/selectGoodsClsscList.do', {
+      method: 'POST',
+      json: [{ trgtObj: trgt, codeId: insttId, upperDetailCode: up }],
+    });
+    let data = [];
+    try { data = await res.json(); } catch { /* 빈 응답 */ }
+    out[key] = (data || []).map((d) => ({ codeId: d.codeId, codeNm: (d.codeNm || '').trim() }));
+  }
+  return out;
+}
+
 // ---- 빈자리 검색 ---------------------------------------------------------
 
 /**
@@ -131,6 +155,8 @@ export async function getForests() {
  * @param {string} opts.endDate     퇴실일 YYYYMMDD
  * @param {string} [opts.section]   SECTION.HOUSE(숲속의집) | SECTION.CAMP(야영장)
  * @param {boolean}[opts.availableOnly] 예약가능 시설만
+ * @param {string[]}[opts.houseClssc] 숙박 상품분류 코드 필터(예: 카라반)
+ * @param {string[]}[opts.campClssc]  야영 상품분류 코드 필터(예: 카라반사이트)
  * @returns {Promise<Array>} 휴양림별 빈자리 요약
  */
 export async function search({
@@ -140,6 +166,8 @@ export async function search({
   endDate,
   section = SECTION.HOUSE,
   availableOnly = false,
+  houseClssc = [],
+  campClssc = [],
 } = {}) {
   if (!beginDate || !endDate) throw new Error('beginDate/endDate(YYYYMMDD)가 필요합니다.');
   const body = {
@@ -151,6 +179,9 @@ export async function search({
     rsrvtPssblYn: availableOnly ? 'Y' : 'N',
     srtngOrdr: 'rsrvtPssbl',
   };
+  // 상품분류(카라반 등) 필터 — availableCount가 해당 분류만 집계된다(전체 시설 수는 그대로).
+  if (houseClssc.length) body.goodsClsscHouseCdArr = houseClssc;
+  if (campClssc.length) body.goodsClsscCampCdArr = campClssc;
   const res = await api('/rep/or/innerFcfsRcrfrDtlDetls.do', { method: 'POST', json: body });
   const html = await res.text();
   return parseSearchResult(html, { section, beginDate, endDate });

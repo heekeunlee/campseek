@@ -12,7 +12,7 @@ main{max-width:960px;margin:20px auto;padding:0 16px;}
 .status.ok{background:#e8f5e9;color:var(--ok);} .status.no{background:#f3f3f3;color:var(--muted);}
 .meta{color:var(--muted);font-size:13px;margin:8px 0;}
 .refresh-msg{color:var(--green-d);font-size:12px;margin:4px 0;min-height:16px;}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 14px;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 14px;align-items:end;}
 label{display:flex;flex-direction:column;font-size:13px;color:var(--muted);gap:5px;}
 label.chk{flex-direction:row;align-items:center;gap:8px;color:#1c231c;}
 select,input[type="date"]{padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px;background:#fff;}
@@ -21,6 +21,33 @@ button{background:var(--green);color:#fff;border:0;border-radius:8px;padding:10p
 button:hover{background:var(--green-d);} button:disabled{opacity:.5;cursor:default;}
 button.secondary{background:#fff;color:var(--green-d);border:1px solid var(--green);}
 @media (max-width:640px){.grid{grid-template-columns:1fr;}}
+/* ---- 캘린더 ---- */
+.cal-help{margin:10px 0 6px;}
+.calendar{display:flex;flex-wrap:wrap;gap:18px;margin:4px 0 8px;}
+.cal-month{flex:1 1 300px;min-width:280px;}
+.cal-title{font-weight:700;color:var(--green-d);font-size:15px;margin:0 2px 8px;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-dow{text-align:center;font-size:11px;color:var(--muted);font-weight:600;padding:2px 0;}
+.cal-dow.sun{color:#c0392b;} .cal-dow.sat{color:#2c6fbb;}
+.cal-cell{aspect-ratio:1/1;border:1px solid var(--line);border-radius:8px;background:#fff;padding:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;position:relative;}
+.cal-cell.empty{border:0;background:transparent;}
+.cal-cell.out{background:#fafbfa;color:#c3c9c3;border-color:#eef1ee;}
+.cal-cell .dnum{font-size:12px;font-weight:600;color:#333;line-height:1;}
+.cal-cell .dnum.sun{color:#c0392b;} .cal-cell .dnum.sat{color:#2c6fbb;}
+.cal-cell.out .dnum{color:#c3c9c3;}
+.cal-cell .dcount{font-size:13px;font-weight:800;line-height:1;min-height:13px;}
+button.cal-cell.day{cursor:pointer;transition:transform .05s;}
+button.cal-cell.day:hover{transform:scale(1.06);border-color:var(--green);}
+.cal-cell.day.selected{outline:3px solid var(--green-d);outline-offset:-1px;z-index:1;}
+/* 히트맵 (예약가능 시설 수) */
+.heat-0{background:#fff;} .heat-0 .dcount{color:#bcbfbc;}
+.heat-1{background:#e6f4e6;} .heat-2{background:#c3e6c3;} .heat-3{background:#8fd08f;}
+.heat-4{background:#4fae4f;} .heat-5{background:#2e7d32;}
+.heat-1 .dcount,.heat-2 .dcount{color:#1b5e20;}
+.heat-3 .dcount{color:#0f3d12;}
+.heat-4 .dcount,.heat-5 .dcount{color:#fff;}
+.heat-4 .dnum,.heat-5 .dnum,.heat-4 .dnum.sun,.heat-5 .dnum.sun,.heat-4 .dnum.sat,.heat-5 .dnum.sat{color:#eafaea;}
 table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px;}
 th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);}
 th{color:var(--muted);font-weight:600;font-size:12px;}

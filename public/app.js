@@ -6,7 +6,8 @@ const api = async (url, opts) => {
 };
 const ymd = (v) => (v || '').replaceAll('-', ''); // yyyy-mm-dd → yyyymmdd
 const dashed = (v) => (v && v.length === 8 ? `${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6)}` : v);
-const sectionNm = (s) => (s === '02' ? '야영장' : '숲속의 집');
+const sectionNm = (s) =>
+  s === '04' ? '숲이랑' : s === '03' ? '카라반' : s === '02' ? '야영장' : '숲속의 집';
 
 let FORESTS = [];
 
@@ -82,7 +83,10 @@ function renderResults(results) {
     const cnt = r.availableCount == null
       ? '—'
       : `<span class="${has ? 'avail-ok' : 'avail-no'}">${has ? '예약가능 ' + r.availableCount : '마감'}</span>`;
-    const fac = $('section').value === '02'
+    const sv = $('section').value;
+    const fac = sv === '03'
+      ? '—'
+      : sv === '02'
       ? (r.totalCampsites != null ? r.totalCampsites + '개' : '—')
       : (r.totalRooms != null ? r.totalRooms + '개' : '—');
     const info = r.infoUrl || (r.url && /^https?:\/\//.test(r.url)
@@ -96,7 +100,7 @@ function renderResults(results) {
       <td><a class="book" href="${r.reserveUrl}" target="_blank" rel="noopener">예약↗</a></td>
     </tr>`;
   }).join('');
-  const facHead = $('section').value === '02' ? '야영장 수' : '객실 수';
+  const facHead = $('section').value === '03' ? '카라반 수' : $('section').value === '02' ? '야영장 수' : '객실 수';
   $('results').innerHTML = `<table>
     <thead><tr><th>휴양림</th><th>빈자리</th><th>${facHead}</th><th>인원정보</th><th></th></tr></thead>
     <tbody>${rows}</tbody></table>`;

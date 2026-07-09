@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>🌲 campseek</h1>
-    <p class="sub">숲나들e 자연휴양림 · 숲속의 집 &amp; 야영장 빈자리 조회</p>
+    <p class="sub">숲나들e 자연휴양림(숲속의 집·야영장·카라반) &amp; 숲이랑 산림복지시설(숲체원·산림치유원) 빈자리 조회</p>
   </header>
 
   <main>
@@ -22,18 +22,16 @@
         <label>시설
           <select id="section"></select>
         </label>
-        <label>날짜(주말)
-          <select id="date"></select>
-        </label>
         <label class="chk">
           <input type="checkbox" id="availableOnly" checked /> 예약가능만 보기
         </label>
         <div class="actions">
-          <button type="button" id="searchBtn">🔍 조회</button>
           <button type="button" id="refreshBtn" class="secondary" title="숲나들e를 지금 다시 조회합니다">🔄 지금 업데이트</button>
         </div>
       </div>
       <p id="refreshMsg" class="meta refresh-msg"></p>
+      <p class="cal-help meta">날짜 칸의 숫자 = 예약가능 <b>시설 수</b>. 날짜를 누르면 아래에 목록이 나옵니다.</p>
+      <div id="calendar" class="calendar"></div>
       <p id="meta" class="meta">불러오는 중…</p>
       <div id="results"></div>
     </section>

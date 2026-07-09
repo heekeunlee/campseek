@@ -8,6 +8,11 @@ import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
 
 import { getForests, getRegions, search, SECTION } from './forestClient.js';
+import { getCaravanForests } from './caravan.js';
+import {
+  SOOPERANG_CATALOG, getFacilityAvailability,
+  monthUrl as spMonthUrl, reserveUrl as spReserveUrl, homeUrl as spHomeUrl,
+} from './sooperangClient.js';
 import { listWatches, addWatch, updateWatch, removeWatch, getWatch } from './store.js';
 import { startWatcher, runOnce } from './watcher.js';
 import { recentEvents } from './notify.js';
@@ -124,6 +129,69 @@ const server = createServer(async (req, res) => {
         const end = q.get('end');
         if (!validDate(begin) || !validDate(end))
           return json(res, 400, { error: 'begin/end must be YYYYMMDD' });
+
+        // 숲이랑(04): 산림복지시설(숲체원·산림치유원) 숙박 빈자리
+        if (q.get('section') === '04') {
+          const arcd = q.get('arcd') || '';
+          const cat = SOOPERANG_CATALOG.filter((f) => f.lodging && (!arcd || f.arcd === arcd));
+          const results = [];
+          for (const f of cat) {
+            let a = null;
+            try { a = await getFacilityAvailability(f.insttId); } catch { /* skip */ }
+            if (!a || a.totalRooms === 0) continue;
+            const day = a.byDay[begin];
+            const availableCount = day ? day.avail : (a.windowMax && begin > a.windowMax ? null : 0);
+            results.push({
+              insttId: f.insttId, name: f.name, type: f.type,
+              availableCount, totalRooms: a.totalRooms, totalCampsites: null, tel: '',
+              url: spHomeUrl(f.insttId), infoUrl: spMonthUrl(f.insttId), reserveUrl: spReserveUrl(f.insttId),
+            });
+          }
+          const filtered = q.get('availableOnly') === 'true'
+            ? results.filter((r) => (r.availableCount ?? 0) > 0) : results;
+          filtered.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
+          return json(res, 200, { count: filtered.length, results: filtered });
+        }
+
+        // 카라반(03): 휴양림별 상품분류 필터로 개별 조회
+        if (q.get('section') === '03') {
+          const arcd = q.get('arcd') || '';
+          const insttId = q.get('insttId') || '';
+          let cf = await getCaravanForests();
+          if (insttId) cf = cf.filter((f) => f.insttId === insttId);
+          else if (arcd) cf = cf.filter((f) => f.arcd === arcd);
+          const results = [];
+          for (const f of cf) {
+            let avail = 0, name = f.name, type = '', tel = '', url = '';
+            for (const [sect, codes, key] of [
+              ['02', f.camp, 'campClssc'],
+              ['01', f.house, 'houseClssc'],
+            ]) {
+              if (!codes.length) continue;
+              const rs = await search({
+                arcd: f.arcd, insttId: f.insttId, beginDate: begin, endDate: end,
+                section: sect === '02' ? SECTION.CAMP : SECTION.HOUSE, [key]: codes,
+              });
+              const rec = rs.find((r) => r.insttId === f.insttId) || rs[0];
+              if (rec) {
+                avail += rec.availableCount || 0;
+                name = rec.name || name; type = rec.type || type;
+                tel = rec.tel || tel; url = rec.url || url;
+              }
+            }
+            results.push({
+              insttId: f.insttId, name, type,
+              availableCount: avail, totalRooms: null, totalCampsites: null, tel, url,
+              infoUrl: infoPageUrl(f.insttId, f.camp.length ? '02' : '01') || url || null,
+              reserveUrl: 'https://www.foresttrip.go.kr/rep/or/fcfsRsrvtMain.do?hmpgId=FRIP&menuId=001001',
+            });
+          }
+          const filtered = q.get('availableOnly') === 'true'
+            ? results.filter((r) => (r.availableCount ?? 0) > 0) : results;
+          filtered.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
+          return json(res, 200, { count: filtered.length, results: filtered });
+        }
+
         const section = q.get('section') === '02' ? SECTION.CAMP : SECTION.HOUSE;
         const results = await search({
           arcd: q.get('arcd') || '',
