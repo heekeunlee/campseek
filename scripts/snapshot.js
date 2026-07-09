@@ -69,11 +69,11 @@ function resolveDates(cfg) {
 }
 
 // 숲나들e 검색 결과 1건 → 대시보드 표시용 레코드
-function mapForest(r, section) {
+function mapForest(r, section, bd) {
   const homeUrl = r.url && /^https?:\/\//.test(r.url)
     ? r.url.replace(/^http:/, 'https:')
     : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : '');
-  return {
+  const rec = {
     insttId: r.insttId, name: r.name, type: r.type,
     availableCount: r.availableCount,
     total: section === '02' ? r.totalCampsites : r.totalRooms,
@@ -81,6 +81,21 @@ function mapForest(r, section) {
     url: homeUrl,
     infoUrl: infoPageUrl(r.insttId, section) || homeUrl,
   };
+  if (bd && bd[r.insttId]) rec.bd = bd[r.insttId]; // 숙박 세부유형(독채/휴양관/연립동) 빈자리
+  return rec;
+}
+
+// 숙박(01) 세부유형별 빈자리 — codeId 슬롯 필터로 전국 일괄 조회.
+//  숲나들e 표준 관례: 01001=숲속의집(독채) / 01002=휴양관 / 01003=연립동 (그 외는 기타)
+async function houseBreakdown(beginDate, endDate) {
+  const slots = [['dc', ['01001']], ['hy', ['01002']], ['yl', ['01003']]];
+  const bd = {};
+  for (const [key, codes] of slots) {
+    const r = await search({ arcd: '', beginDate, endDate, section: SECTION.HOUSE, houseClssc: codes });
+    for (const x of r) (bd[x.insttId] ||= { dc: 0, hy: 0, yl: 0 })[key] = x.availableCount || 0;
+    await sleep(800);
+  }
+  return bd;
 }
 
 // 카라반 스냅샷: 카라반 보유 휴양림을 (지역, 날짜)별로 묶어 개별 조회.
@@ -234,6 +249,12 @@ async function run() {
       // 가지치기용 빈자리 맵 기록
       const rec = (availByDay[section][beginDate] = {});
       for (const r of results) rec[r.insttId] = r.availableCount || 0;
+      // 숙박(01)은 세부유형(독채/휴양관/연립동) 분해 추가
+      let bd = null;
+      if (section === '01') {
+        try { bd = await houseBreakdown(beginDate, endDate); }
+        catch (e) { console.error(`[snapshot] 숙박 세부분해 실패 ${beginDate}: ${e.message}`); }
+      }
       // 지역별로 재분류
       const byArcd = {};
       for (const r of results) {
@@ -244,7 +265,7 @@ async function run() {
       for (const [arcd, list] of Object.entries(byArcd)) {
         const mapped = list
           .sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0))
-          .map((r) => mapForest(r, section));
+          .map((r) => mapForest(r, section, bd));
         snapshots.push({
           arcd, regionName: regionName[arcd] || arcd,
           section, sectionName: sectionNm(section),

@@ -190,11 +190,17 @@ function rowHtml(r) {
   const has = (r.availableCount ?? 0) > 0;
   const cnt = r.availableCount == null ? '—'
     : `<span class="${has ? 'avail-ok' : 'avail-no'}">${has ? '가능 ' + r.availableCount : '마감'}</span>`;
+  // 숙박 세부유형(독채/휴양관/연립동) — 빈자리가 있는 유형만 강조
+  let bd = '';
+  if (r.bd) {
+    const seg = (label, n) => `<span class="${n > 0 ? 'bd-ok' : 'bd-no'}">${label} ${n}</span>`;
+    bd = `<div class="bd">${seg('독채', r.bd.dc)} · ${seg('휴양관', r.bd.hy)} · ${seg('연립동', r.bd.yl)}</div>`;
+  }
   const info = r.infoUrl || r.url || RESERVE_URL;
   return `<tr class="${has ? 'has' : ''}">
     <td>${r.name} <span class="badge ${r.type}">${r.type}</span></td>
     <td>${(r.regionName || '').replace(/^\s*/, '')}</td>
-    <td>${cnt}</td>
+    <td>${cnt}${bd}</td>
     <td>${r.total ?? '—'}</td>
     <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실·빈자리 등 정보 페이지">인원정보 ↗</a></td>
     <td><a class="book" href="${r.reserveUrl || RESERVE_URL}" target="_blank" rel="noopener">예약↗</a></td>

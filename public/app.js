@@ -83,6 +83,11 @@ function renderResults(results) {
     const cnt = r.availableCount == null
       ? '—'
       : `<span class="${has ? 'avail-ok' : 'avail-no'}">${has ? '예약가능 ' + r.availableCount : '마감'}</span>`;
+    const bd = r.bd
+      ? `<div class="bd"><span class="${r.bd.dc > 0 ? 'bd-ok' : 'bd-no'}">독채 ${r.bd.dc}</span> · ` +
+        `<span class="${r.bd.hy > 0 ? 'bd-ok' : 'bd-no'}">휴양관 ${r.bd.hy}</span> · ` +
+        `<span class="${r.bd.yl > 0 ? 'bd-ok' : 'bd-no'}">연립동 ${r.bd.yl}</span></div>`
+      : '';
     const sv = $('section').value;
     const fac = sv === '03'
       ? '—'
@@ -94,7 +99,7 @@ function renderResults(results) {
       : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : r.reserveUrl));
     return `<tr class="${has ? 'has-room' : ''}">
       <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span></td>
-      <td>${cnt}</td>
+      <td>${cnt}${bd}</td>
       <td>${fac}</td>
       <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실 등 인원 정보 페이지">인원정보 ↗</a></td>
       <td><a class="book" href="${r.reserveUrl}" target="_blank" rel="noopener">예약↗</a></td>

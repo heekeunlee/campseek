@@ -206,6 +206,16 @@ const server = createServer(async (req, res) => {
         for (const r of results) {
           r.infoUrl = infoPageUrl(r.insttId, sectCode) || r.url || null;
         }
+        // 숙박(01): 세부유형(독채/휴양관/연립동) 빈자리 분해
+        if (sectCode === '01') {
+          const arcd = q.get('arcd') || '', insttId = q.get('insttId') || '';
+          const bd = {};
+          for (const [k, codes] of [['dc', ['01001']], ['hy', ['01002']], ['yl', ['01003']]]) {
+            const rs = await search({ arcd, insttId, beginDate: begin, endDate: end, section: SECTION.HOUSE, houseClssc: codes });
+            for (const x of rs) (bd[x.insttId] ||= { dc: 0, hy: 0, yl: 0 })[k] = x.availableCount || 0;
+          }
+          for (const r of results) if (bd[r.insttId]) r.bd = bd[r.insttId];
+        }
         return json(res, 200, { count: results.length, results });
       }
 

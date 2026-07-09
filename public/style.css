@@ -58,6 +58,9 @@ th { color: var(--muted); font-weight: 600; font-size: 12px; }
 .badge.사립 { background: #fff3e0; color: #e65100; }
 .avail-ok { color: var(--ok); font-weight: 700; }
 .avail-no { color: var(--no); }
+.bd { font-size: 11px; margin-top: 3px; color: #8a938a; }
+.bd .bd-ok { color: var(--ok); font-weight: 700; }
+.bd .bd-no { color: #b7bdb7; }
 .approx { font-size: 10px; background: #f0f0f0; color: #999; padding: 1px 5px; border-radius: 6px; vertical-align: middle; }
 tr.has-room { background: #f1f8f1; }
 a.book { color: var(--green-d); font-weight: 600; text-decoration: none; }
