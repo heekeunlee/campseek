@@ -26,8 +26,8 @@ async function init() {
   $('foot').innerHTML =
     `최근 갱신: <b>${new Date(DATA.generatedAt).toLocaleString('ko-KR')}</b> · ` + $('foot').innerHTML;
 
-  $('region').addEventListener('change', renderCalendar);
-  $('section').addEventListener('change', renderCalendar);
+  // '찾기' 버튼: 선택한 지역·시설로 달력/목록 갱신
+  $('findBtn').addEventListener('click', () => { renderCalendar(); if (selectedDate) doSearch(); });
   $('availableOnly').addEventListener('change', () => { renderCalendar(); if (selectedDate) doSearch(); });
   setupAdmin();
 
