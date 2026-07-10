@@ -249,8 +249,10 @@ function rowHtml(r) {
     bd = `<div class="bd">${seg('독채', r.bd.dc)} · ${seg('휴양관', r.bd.hy)} · ${seg('연립동', r.bd.yl)}</div>`;
   }
   const info = r.infoUrl || r.url || RESERVE_URL;
+  // 계곡·해변·물놀이장 등 물놀이 가능 표시 (r.w = 사유 문구)
+  const water = r.w ? ` <span class="water" title="근처 물놀이: ${r.w}">🏞️</span>` : '';
   return `<tr class="${has ? 'has' : ''}">
-    <td>${r.name} <span class="badge ${r.type}">${r.type}</span></td>
+    <td>${r.name} <span class="badge ${r.type}">${r.type}</span>${water}</td>
     <td>${(r.regionName || '').replace(/^\s*/, '')}</td>
     <td>${cnt}${bd}</td>
     <td>${r.total ?? '—'}</td>

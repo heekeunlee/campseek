@@ -1,0 +1,3242 @@
+{
+ "ID07030002": {
+  "insttId": "ID07030002",
+  "name": "국립산악박물관",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID05030002": {
+  "insttId": "ID05030002",
+  "name": "DMZ펀치볼둘레길",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID07030001": {
+  "insttId": "ID07030001",
+  "name": "국립등산학교",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0306": {
+  "insttId": "0306",
+  "name": "(고성군)진부령자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해변",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030100": {
+  "insttId": "ID02030100",
+  "name": "(강릉시)임해자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0244": {
+  "insttId": "0244",
+  "name": "(삼척시)검봉산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "해변",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030104": {
+  "insttId": "ID02030104",
+  "name": "(삼척시)삼척활기자연휴양림",
+  "type": "사립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "해변"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0111": {
+  "insttId": "0111",
+  "name": "(강릉시)대관령자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "백사장",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0112": {
+  "insttId": "0112",
+  "name": "(양양군)미천골자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030095": {
+  "insttId": "ID02030095",
+  "name": "(양구군)광치자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030067": {
+  "insttId": "ID02030067",
+  "name": "(영월군)망경대산자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID04030001": {
+  "insttId": "ID04030001",
+  "name": "(원주시)피노키오자연휴양림",
+  "type": "사립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030049": {
+  "insttId": "ID02030049",
+  "name": "(양양군)송이밸리자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0223": {
+  "insttId": "0223",
+  "name": "(원주시)백운산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030024": {
+  "insttId": "ID02030024",
+  "name": "(원주시)치악산자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID05030005": {
+  "insttId": "ID05030005",
+  "name": "점봉산 곰배령 산림생태탐방",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID02030120": {
+  "insttId": "ID02030120",
+  "name": "(인제군)갯골자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID05030003": {
+  "insttId": "ID05030003",
+  "name": "백두대간트레일",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "0109": {
+  "insttId": "0109",
+  "name": "(인제군)방태산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0102": {
+  "insttId": "0102",
+  "name": "(인제군)용대자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030018": {
+  "insttId": "ID02030018",
+  "name": "(인제군)하추자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0113": {
+  "insttId": "0113",
+  "name": "(정선군)가리왕산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0110": {
+  "insttId": "0110",
+  "name": "(철원군)복주산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0222": {
+  "insttId": "0222",
+  "name": "(춘천시)용화산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030096": {
+  "insttId": "ID02030096",
+  "name": "(춘천시)강원숲체험장",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030043": {
+  "insttId": "ID02030043",
+  "name": "(춘천시)집다리골자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030005": {
+  "insttId": "ID02030005",
+  "name": "(철원군)철원두루웰숲속문화촌",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030125": {
+  "insttId": "ID02030125",
+  "name": "(춘천시)춘천숲자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030022": {
+  "insttId": "ID02030022",
+  "name": "(태백시)태백고원자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0243": {
+  "insttId": "0243",
+  "name": "(평창군)두타산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0107": {
+  "insttId": "0107",
+  "name": "(홍천군)삼봉자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0116": {
+  "insttId": "0116",
+  "name": "(화천군)화천숲속야영장",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030003": {
+  "insttId": "ID02030003",
+  "name": "(평창군)평창자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030002": {
+  "insttId": "ID02030002",
+  "name": "(홍천군)가리산자연휴양림",
+  "type": "공립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0106": {
+  "insttId": "0106",
+  "name": "(횡성군)청태산자연휴양림",
+  "type": "국립",
+  "arcd": "2",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030027": {
+  "insttId": "ID02030027",
+  "name": "(경주시)토함산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [
+   "해수욕"
+  ],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID04030002": {
+  "insttId": "ID04030002",
+  "name": "(횡성군)횡성자연휴양림",
+  "type": "사립",
+  "arcd": "2",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0304": {
+  "insttId": "0304",
+  "name": "(김천시)김천숲속야영장",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 1
+ },
+ "ID02030026": {
+  "insttId": "ID02030026",
+  "name": "(고령군)미숭산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030066": {
+  "insttId": "ID02030066",
+  "name": "(구미시)옥성자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [
+   "저수지",
+   "수변"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030102": {
+  "insttId": "ID02030102",
+  "name": "(봉화군)문수산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030030": {
+  "insttId": "ID02030030",
+  "name": "(김천시)수도산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "풀장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0245": {
+  "insttId": "0245",
+  "name": "(문경시)대야산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0183": {
+  "insttId": "0183",
+  "name": "(봉화군)청옥산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030039": {
+  "insttId": "ID02030039",
+  "name": "(상주시)성주봉자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [
+   "물놀이장",
+   "물놀이"
+  ],
+  "pages": 4
+ },
+ "ID02030004": {
+  "insttId": "ID02030004",
+  "name": "(성주군)독용산성자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이시설"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0184": {
+  "insttId": "0184",
+  "name": "(영양군)검마산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030020": {
+  "insttId": "ID02030020",
+  "name": "(안동시)안동호반자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "수변"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "FRTRL0001": {
+  "insttId": "FRTRL0001",
+  "name": "동서트레일 (대피소)",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID02030105": {
+  "insttId": "ID02030105",
+  "name": "(영천시)보현산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID05030009": {
+  "insttId": "ID05030009",
+  "name": "동서트레일",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "0182": {
+  "insttId": "0182",
+  "name": "(영덕군)칠보산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID05030001": {
+  "insttId": "ID05030001",
+  "name": "울진금강소나무숲길",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID02030057": {
+  "insttId": "ID02030057",
+  "name": "(영양군)영양에코둥지",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 7
+ },
+ "ID02030081": {
+  "insttId": "ID02030081",
+  "name": "(영천시)운주산승마자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [
+   "수변"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID04030009": {
+  "insttId": "ID04030009",
+  "name": "(예천군)학가산우래자연휴양림",
+  "type": "사립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030073": {
+  "insttId": "ID02030073",
+  "name": "(울진군)구수곡자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0193": {
+  "insttId": "0193",
+  "name": "(울진군)통고산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "해변"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030075": {
+  "insttId": "ID02030075",
+  "name": "(의성군)금봉자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "시냇물"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030116": {
+  "insttId": "ID02030116",
+  "name": "(청도군)청도자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0195": {
+  "insttId": "0195",
+  "name": "(청도군)운문산자연휴양림",
+  "type": "국립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030010": {
+  "insttId": "ID02030010",
+  "name": "(청송군)청송자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030076": {
+  "insttId": "ID02030076",
+  "name": "(칠곡군)송정자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "수변"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030052": {
+  "insttId": "ID02030052",
+  "name": "(포항시)비학산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID06030001": {
+  "insttId": "ID06030001",
+  "name": "대전둘레산길",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID02030006": {
+  "insttId": "ID02030006",
+  "name": "(칠곡군)팔공산금화자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030064": {
+  "insttId": "ID02030064",
+  "name": "(군위군)군위장곡자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030093": {
+  "insttId": "ID02030093",
+  "name": "(대구시)비슬산자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030094": {
+  "insttId": "ID02030094",
+  "name": "(대구시)화원자연휴양림",
+  "type": "공립",
+  "arcd": "7",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030111": {
+  "insttId": "ID02030111",
+  "name": "(대전시)만인산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0305": {
+  "insttId": "0305",
+  "name": "(금산군)금산자연휴양림",
+  "type": "국립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030106": {
+  "insttId": "ID02030106",
+  "name": "(대전시)장태산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030063": {
+  "insttId": "ID02030063",
+  "name": "(금산군)금산산림문화타운",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030034": {
+  "insttId": "ID02030034",
+  "name": "(논산시)양촌자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030011": {
+  "insttId": "ID02030011",
+  "name": "(공주시)공주산림휴양마을",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030078": {
+  "insttId": "ID02030078",
+  "name": "(보령시)성주산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030130": {
+  "insttId": "ID02030130",
+  "name": "(보령시)원산도자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0191": {
+  "insttId": "0191",
+  "name": "(보령시)오서산자연휴양림",
+  "type": "국립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "백사장",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID08030004": {
+  "insttId": "ID08030004",
+  "name": "(천안시)태조산산림레포츠단지",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "0220": {
+  "insttId": "0220",
+  "name": "(서산시)용현자연휴양림",
+  "type": "국립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030007": {
+  "insttId": "ID02030007",
+  "name": "(부여군)만수산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 5
+ },
+ "ID02030012": {
+  "insttId": "ID02030012",
+  "name": "(아산시)영인산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "물놀이터"
+  ],
+  "beach": [
+   "바다"
+  ],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0187": {
+  "insttId": "0187",
+  "name": "(서천군)희리산자연휴양림",
+  "type": "국립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030028": {
+  "insttId": "ID02030028",
+  "name": "(예산군)봉수산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030040": {
+  "insttId": "ID02030040",
+  "name": "(천안시)태학산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030086": {
+  "insttId": "ID02030086",
+  "name": "(태안군)안면도자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030044": {
+  "insttId": "ID02030044",
+  "name": "(청양군)칠갑산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030080": {
+  "insttId": "ID02030080",
+  "name": "(홍성군)용봉산자연휴양림",
+  "type": "공립",
+  "arcd": "4",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030126": {
+  "insttId": "ID02030126",
+  "name": "(거창군)거창산림레포츠파크",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030059": {
+  "insttId": "ID02030059",
+  "name": "(거제시)거제자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해변",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030077": {
+  "insttId": "ID02030077",
+  "name": "(거창군)금원산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030124": {
+  "insttId": "ID02030124",
+  "name": "(고성군)갈모봉자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030109": {
+  "insttId": "ID02030109",
+  "name": "(거창군)항노화힐링랜드",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 5
+ },
+ "0302": {
+  "insttId": "0302",
+  "name": "(김해시)용지봉자연휴양림",
+  "type": "국립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030112": {
+  "insttId": "ID02030112",
+  "name": "(사천시)사천 케이블카 자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0192": {
+  "insttId": "0192",
+  "name": "(남해군)남해편백자연휴양림",
+  "type": "국립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030115": {
+  "insttId": "ID02030115",
+  "name": "(밀양시)도래재자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030037": {
+  "insttId": "ID02030037",
+  "name": "(산청군)산청한방자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030113": {
+  "insttId": "ID02030113",
+  "name": "(의령)자굴산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이터"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID04030006": {
+  "insttId": "ID04030006",
+  "name": "(산청군)중산자연휴양림",
+  "type": "사립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030038": {
+  "insttId": "ID02030038",
+  "name": "(양산시)대운산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030114": {
+  "insttId": "ID02030114",
+  "name": "(진주시)진주 월아산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030103": {
+  "insttId": "ID02030103",
+  "name": "(하동군)하동편백자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030015": {
+  "insttId": "ID02030015",
+  "name": "(창녕군)화왕산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [
+   "늪"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030072": {
+  "insttId": "ID02030072",
+  "name": "(하동군)구재봉자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID04030008": {
+  "insttId": "ID04030008",
+  "name": "(하동군)덕원자연휴양림",
+  "type": "사립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030048": {
+  "insttId": "ID02030048",
+  "name": "(함양군)산삼자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030046": {
+  "insttId": "ID02030046",
+  "name": "(함양군)대봉산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030117": {
+  "insttId": "ID02030117",
+  "name": "(함양군)대봉캠핑랜드",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030047": {
+  "insttId": "ID02030047",
+  "name": "(함양군)용추자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0202": {
+  "insttId": "0202",
+  "name": "(기장군)달음산자연휴양림",
+  "type": "국립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [
+   "계곡",
+   "시냇물"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0190": {
+  "insttId": "0190",
+  "name": "(함양군)지리산자연휴양림",
+  "type": "국립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0105": {
+  "insttId": "0105",
+  "name": "(울주군)신불산자연휴양림",
+  "type": "국립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030068": {
+  "insttId": "ID02030068",
+  "name": "(합천군)오도산자연휴양림",
+  "type": "공립",
+  "arcd": "8",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030019": {
+  "insttId": "ID02030019",
+  "name": "(가평군)강씨봉자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "물놀이시설"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID04030007": {
+  "insttId": "ID04030007",
+  "name": "(가평군)청평자연휴양림",
+  "type": "사립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0101": {
+  "insttId": "0101",
+  "name": "(가평군)유명산자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030099": {
+  "insttId": "ID02030099",
+  "name": "(가평군)칼봉산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030123": {
+  "insttId": "ID02030123",
+  "name": "(양주시)신암저수지숲속야영장",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지",
+   "수변"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030050": {
+  "insttId": "ID02030050",
+  "name": "(남양주시)축령산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030092": {
+  "insttId": "ID02030092",
+  "name": "(안성시)서운산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "0104": {
+  "insttId": "0104",
+  "name": "(양주시)아세안자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030087": {
+  "insttId": "ID02030087",
+  "name": "(양평군)양평 백운봉 자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030023": {
+  "insttId": "ID02030023",
+  "name": "(동두천시)동두천자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0103": {
+  "insttId": "0103",
+  "name": "(양평군)산음자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장",
+   "워터"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030079": {
+  "insttId": "ID02030079",
+  "name": "(양평군)양평쉬자파크",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID04030004": {
+  "insttId": "ID04030004",
+  "name": "(양평군)양평설매재자연휴양림",
+  "type": "사립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0108": {
+  "insttId": "0108",
+  "name": "(양평군)중미산자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "워터"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030001": {
+  "insttId": "ID02030001",
+  "name": "(연천군)고대산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0224": {
+  "insttId": "0224",
+  "name": "(포천시)운악산자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID05030006": {
+  "insttId": "ID05030006",
+  "name": "홍릉시험림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 0
+ },
+ "ID02030065": {
+  "insttId": "ID02030065",
+  "name": "(의왕시)의왕바라산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030031": {
+  "insttId": "ID02030031",
+  "name": "(용인시)용인자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030118": {
+  "insttId": "ID02030118",
+  "name": "(화성시)무봉산 자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "CBMNT": {
+  "insttId": "CBMNT",
+  "name": "(포천시)천보산자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030129": {
+  "insttId": "ID02030129",
+  "name": "(노원구)수락산동막골자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID04030105": {
+  "insttId": "ID04030105",
+  "name": "(강화군)강화자연휴양림",
+  "type": "사립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030071": {
+  "insttId": "ID02030071",
+  "name": "(강화군)석모도자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "0303": {
+  "insttId": "0303",
+  "name": "(인천시)무의도자연휴양림",
+  "type": "국립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030127": {
+  "insttId": "ID02030127",
+  "name": "(옹진군)덕적도자연휴양림",
+  "type": "공립",
+  "arcd": "1",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030069": {
+  "insttId": "ID02030069",
+  "name": "(고흥군)팔영산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕"
+  ],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030060": {
+  "insttId": "ID02030060",
+  "name": "(강진군)주작산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030061": {
+  "insttId": "ID02030061",
+  "name": "(광양시)백운산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030091": {
+  "insttId": "ID02030091",
+  "name": "(구례군)산수유자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0200": {
+  "insttId": "0200",
+  "name": "(순천시)낙안민속자연휴양림",
+  "type": "국립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해변"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030090": {
+  "insttId": "ID02030090",
+  "name": "(보성군)제암산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0201": {
+  "insttId": "0201",
+  "name": "(진도군)진도자연휴양림",
+  "type": "국립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030058": {
+  "insttId": "ID02030058",
+  "name": "(순천시)순천자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030121": {
+  "insttId": "ID02030121",
+  "name": "(영암군)기찬자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030097": {
+  "insttId": "ID02030097",
+  "name": "(여수시)봉황산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030021": {
+  "insttId": "ID02030021",
+  "name": "(완도군)완도자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0196": {
+  "insttId": "0196",
+  "name": "(장흥군)천관산자연휴양림",
+  "type": "국립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030045": {
+  "insttId": "ID02030045",
+  "name": "(해남군)흑석산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장",
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "0181": {
+  "insttId": "0181",
+  "name": "(장성군)방장산자연휴양림",
+  "type": "국립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030098": {
+  "insttId": "ID02030098",
+  "name": "(화순군)백아산자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID04030010": {
+  "insttId": "ID04030010",
+  "name": "(화순군)무등산편백자연휴양림",
+  "type": "사립",
+  "arcd": "6",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이터"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030119": {
+  "insttId": "ID02030119",
+  "name": "(김제시)선암자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030088": {
+  "insttId": "ID02030088",
+  "name": "(화순군)한천자연휴양림",
+  "type": "공립",
+  "arcd": "6",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0141": {
+  "insttId": "0141",
+  "name": "(무주군)덕유산자연휴양림",
+  "type": "국립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID04030003": {
+  "insttId": "ID04030003",
+  "name": "(남원시)남원자연휴양림",
+  "type": "사립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0188": {
+  "insttId": "0188",
+  "name": "(순창군)회문산자연휴양림",
+  "type": "국립",
+  "arcd": "5",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030108": {
+  "insttId": "ID02030108",
+  "name": "(무주군)무주향로산자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0301": {
+  "insttId": "0301",
+  "name": "(군산시)신시도자연휴양림",
+  "type": "국립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0189": {
+  "insttId": "0189",
+  "name": "(부안군)변산자연휴양림",
+  "type": "국립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "해수욕",
+   "바닷가",
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030122": {
+  "insttId": "ID02030122",
+  "name": "(임실군)성수산왕의숲자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030025": {
+  "insttId": "ID02030025",
+  "name": "(완주군)고산자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030131": {
+  "insttId": "ID02030131",
+  "name": "(정읍시)내장산자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID05030007": {
+  "insttId": "ID05030007",
+  "name": "한남사려니오름숲",
+  "type": "국립",
+  "arcd": "9",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 1
+ },
+ "ID02030082": {
+  "insttId": "ID02030082",
+  "name": "(장수군)방화동자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030014": {
+  "insttId": "ID02030014",
+  "name": "(서귀포시)붉은오름자연휴양림",
+  "type": "공립",
+  "arcd": "9",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "0194": {
+  "insttId": "0194",
+  "name": "(진안군)운장산자연휴양림",
+  "type": "국립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030084": {
+  "insttId": "ID02030084",
+  "name": "(장수군)와룡자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이터",
+   "수영장",
+   "물썰매장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030074": {
+  "insttId": "ID02030074",
+  "name": "(진안군)데미샘자연휴양림",
+  "type": "공립",
+  "arcd": "5",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030013": {
+  "insttId": "ID02030013",
+  "name": "(서귀포시)서귀포자연휴양림",
+  "type": "공립",
+  "arcd": "9",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030056": {
+  "insttId": "ID02030056",
+  "name": "(제주시)교래자연휴양림",
+  "type": "공립",
+  "arcd": "9",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "0242": {
+  "insttId": "0242",
+  "name": "(단양군)황정산자연휴양림",
+  "type": "국립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030053": {
+  "insttId": "ID02030053",
+  "name": "(제주시)제주절물자연휴양림",
+  "type": "공립",
+  "arcd": "9",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030070": {
+  "insttId": "ID02030070",
+  "name": "(괴산군)성불산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030009": {
+  "insttId": "ID02030009",
+  "name": "(단양군)소백산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030041": {
+  "insttId": "ID02030041",
+  "name": "(단양군)소선암자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030008": {
+  "insttId": "ID02030008",
+  "name": "(괴산군)조령산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "계곡",
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 5
+ },
+ "0115": {
+  "insttId": "0115",
+  "name": "(보은군)속리산말티재자연휴양림",
+  "type": "국립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 2
+ },
+ "ID08030001": {
+  "insttId": "ID08030001",
+  "name": "(보은군)속리산e레포츠",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030032": {
+  "insttId": "ID02030032",
+  "name": "(보은군)충북알프스자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030107": {
+  "insttId": "ID02030107",
+  "name": "(영동군)민주지산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030036": {
+  "insttId": "ID02030036",
+  "name": "(옥천군)장령산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030062": {
+  "insttId": "ID02030062",
+  "name": "(제천시)박달재자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030110": {
+  "insttId": "ID02030110",
+  "name": "(제천시)옥전자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ },
+ "ID02030017": {
+  "insttId": "ID02030017",
+  "name": "(음성군)수레의산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030016": {
+  "insttId": "ID02030016",
+  "name": "(음성군)백야자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030035": {
+  "insttId": "ID02030035",
+  "name": "(보은군)속리산숲체험휴양마을",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "수영장"
+  ],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030132": {
+  "insttId": "ID02030132",
+  "name": "(청주시)미원별빛자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030089": {
+  "insttId": "ID02030089",
+  "name": "(증평군)좌구산휴양랜드",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "저수지"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030033": {
+  "insttId": "ID02030033",
+  "name": "(진천군)생거진천자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030042": {
+  "insttId": "ID02030042",
+  "name": "(충주시)계명산자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [
+   "호수"
+  ],
+  "negated": [],
+  "pages": 3
+ },
+ "0300": {
+  "insttId": "0300",
+  "name": "(청주시)상당산성자연휴양림",
+  "type": "국립",
+  "arcd": "3",
+  "hero": "",
+  "water": false,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030055": {
+  "insttId": "ID02030055",
+  "name": "(충주시)문성자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [
+   "바다"
+  ],
+  "valley": [],
+  "lake": [],
+  "negated": [],
+  "pages": 3
+ },
+ "ID02030054": {
+  "insttId": "ID02030054",
+  "name": "(청주시)옥화자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [
+   "물놀이장"
+  ],
+  "beach": [],
+  "valley": [
+   "물놀이",
+   "시냇물"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 4
+ },
+ "ID02030051": {
+  "insttId": "ID02030051",
+  "name": "(충주시)봉황자연휴양림",
+  "type": "공립",
+  "arcd": "3",
+  "hero": "",
+  "water": true,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "물놀이"
+  ],
+  "lake": [],
+  "negated": [],
+  "pages": 2
+ }
+}

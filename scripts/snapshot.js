@@ -21,6 +21,11 @@ try { process.loadEnvFile(new URL('../.env', import.meta.url)); } catch { /* .en
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'site', 'data');
+
+// 물놀이(계곡·해변·물놀이장) 가능 휴양림 맵 { insttId: 사유 } — scripts/buildWaterMap.mjs 생성
+let WATER_MAP = {};
+try { WATER_MAP = JSON.parse(readFileSync(join(ROOT, 'config', 'waterMap.json'), 'utf8')); }
+catch { /* 맵 없으면 표시 안 함 */ }
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // 로컬 날짜 기준 YYYYMMDD (toISOString은 UTC라 -9h 밀림 → 사용 금지)
 const ymd = (d) =>
@@ -82,6 +87,7 @@ function mapForest(r, section, bd) {
     infoUrl: infoPageUrl(r.insttId, section) || homeUrl,
   };
   if (bd && bd[r.insttId]) rec.bd = bd[r.insttId]; // 숙박 세부유형(독채/휴양관/연립동) 빈자리
+  if (WATER_MAP[r.insttId]) rec.w = WATER_MAP[r.insttId]; // 계곡·물놀이 표시(사유)
   return rec;
 }
 
@@ -150,6 +156,7 @@ async function caravanSnapshots(cfg, dates, regionName, availByDay = { '01': {},
         results.push({
           insttId: f.insttId, name, type,
           availableCount: avail, total: null, tel, url: homeUrl, infoUrl,
+          ...(WATER_MAP[f.insttId] ? { w: WATER_MAP[f.insttId] } : {}),
         });
       }
       results.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));

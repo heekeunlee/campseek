@@ -97,8 +97,9 @@ function renderResults(results) {
     const info = r.infoUrl || (r.url && /^https?:\/\//.test(r.url)
       ? r.url.replace(/^http:/, 'https:')
       : (/^\d+$/.test(r.insttId) ? `https://www.foresttrip.go.kr/${r.insttId}` : r.reserveUrl));
+    const water = r.w ? ` <span class="water" title="근처 물놀이: ${r.w}">🏞️</span>` : '';
     return `<tr class="${has ? 'has-room' : ''}">
-      <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span></td>
+      <td>${r.name || ''} <span class="badge ${r.type}">${r.type || ''}</span>${water}</td>
       <td>${cnt}${bd}</td>
       <td>${fac}</td>
       <td><a class="book" href="${info}" target="_blank" rel="noopener" title="몇인실 등 인원 정보 페이지">인원정보 ↗</a></td>

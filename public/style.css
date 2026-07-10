@@ -56,6 +56,7 @@ th { color: var(--muted); font-weight: 600; font-size: 12px; }
 .badge.국립 { background: #e3f2fd; color: #1565c0; }
 .badge.공립 { background: #e8f5e9; color: #2e7d32; }
 .badge.사립 { background: #fff3e0; color: #e65100; }
+.water { font-size: 13px; cursor: help; vertical-align: middle; }
 .avail-ok { color: var(--ok); font-weight: 700; }
 .avail-no { color: var(--no); }
 .bd { font-size: 11px; margin-top: 3px; color: #8a938a; }

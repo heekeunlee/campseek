@@ -18,9 +18,15 @@ import { startWatcher, runOnce } from './watcher.js';
 import { recentEvents } from './notify.js';
 import { isConfigured as openApiReady, getReservations } from './openApiClient.js';
 import { infoPageUrl } from './forestFee.js';
+import { readFileSync } from 'node:fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
+
+// 물놀이(계곡·해변·물놀이장) 가능 휴양림 맵 { insttId: 사유 }
+let WATER_MAP = {};
+try { WATER_MAP = JSON.parse(readFileSync(join(__dirname, '..', 'config', 'waterMap.json'), 'utf8')); } catch { /* 없으면 미표시 */ }
+const addWater = (rows) => { for (const r of rows) if (WATER_MAP[r.insttId]) r.w = WATER_MAP[r.insttId]; return rows; };
 const PUBLIC = join(ROOT, 'public');
 const BOARD = join(ROOT, 'site'); // 버튼 조회형 대시보드 (gh-pages와 동일)
 const PORT = Number(process.env.PORT || 3000);
@@ -150,7 +156,7 @@ const server = createServer(async (req, res) => {
           const filtered = q.get('availableOnly') === 'true'
             ? results.filter((r) => (r.availableCount ?? 0) > 0) : results;
           filtered.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
-          return json(res, 200, { count: filtered.length, results: filtered });
+          return json(res, 200, { count: filtered.length, results: addWater(filtered) });
         }
 
         // 카라반(03): 휴양림별 상품분류 필터로 개별 조회
@@ -189,7 +195,7 @@ const server = createServer(async (req, res) => {
           const filtered = q.get('availableOnly') === 'true'
             ? results.filter((r) => (r.availableCount ?? 0) > 0) : results;
           filtered.sort((a, b) => (b.availableCount || 0) - (a.availableCount || 0));
-          return json(res, 200, { count: filtered.length, results: filtered });
+          return json(res, 200, { count: filtered.length, results: addWater(filtered) });
         }
 
         const section = q.get('section') === '02' ? SECTION.CAMP : SECTION.HOUSE;
@@ -216,6 +222,7 @@ const server = createServer(async (req, res) => {
           }
           for (const r of results) if (bd[r.insttId]) r.bd = bd[r.insttId];
         }
+        addWater(results);
         return json(res, 200, { count: results.length, results });
       }
 
