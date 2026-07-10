@@ -6,7 +6,9 @@
 //  MANUAL — 자동 스캔이 놓친 확인된 명소(섬 해변, 유명 계곡 등). 개별 검증 완료.
 import fs from 'fs';
 
-const raw = JSON.parse(fs.readFileSync('/tmp/water-signals.json', 'utf8'));
+// 원자료: 우선 커밋본(config), 없으면 수집 임시본(/tmp)
+const rawPath = fs.existsSync('config/water-signals.json') ? 'config/water-signals.json' : '/tmp/water-signals.json';
+const raw = JSON.parse(fs.readFileSync(rawPath, 'utf8'));
 const STRONG_BEACH = new Set(['해수욕', '해변', '백사장', '바닷가']);
 
 const map = {};
