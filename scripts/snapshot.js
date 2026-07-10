@@ -205,6 +205,7 @@ async function sooperangSnapshots(cfg, dates, regionName) {
           url: spHomeUrl(f.insttId),
           infoUrl: spMonthUrl(f.insttId),   // 월별예약조회(빈자리 달력)
           reserveUrl: spReserveUrl(f.insttId), // 숙박예약(로그인 필요)
+          ...(WATER_MAP[f.insttId] ? { w: WATER_MAP[f.insttId] } : {}),
         });
       }
       if (!results.length) continue;

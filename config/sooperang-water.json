@@ -1,0 +1,105 @@
+[
+ {
+  "id": "FA00001",
+  "name": "국립횡성숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 7,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FA00002",
+  "name": "국립장성숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 8,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FA00003",
+  "name": "국립칠곡숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 7,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FA00004",
+  "name": "국립청도숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 6,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FA00005",
+  "name": "국립대전숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 6,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FA00006",
+  "name": "국립춘천숲체원",
+  "water": true,
+  "reason": "계곡",
+  "cntns": 6,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "negated": []
+ },
+ {
+  "id": "FA00007",
+  "name": "국립나주숲체원",
+  "water": false,
+  "reason": "",
+  "cntns": 6,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FT00001",
+  "name": "국립산림치유원",
+  "water": false,
+  "reason": "",
+  "cntns": 6,
+  "facil": [],
+  "beach": [],
+  "valley": [],
+  "negated": []
+ },
+ {
+  "id": "FT00012",
+  "name": "국립진안고원산림치유원",
+  "water": true,
+  "reason": "계곡",
+  "cntns": 7,
+  "facil": [],
+  "beach": [],
+  "valley": [
+   "계곡"
+  ],
+  "negated": []
+ }
+]

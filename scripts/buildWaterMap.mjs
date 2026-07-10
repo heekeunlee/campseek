@@ -36,7 +36,16 @@ const MANUAL_ADD = {
 };
 const MANUAL_REMOVE = []; // 필요시 오탐 제거용
 
+// 숲체원/산림치유원(숲이랑) — 개별 조사(스캔+웹 확인) 결과. ID는 sooperang hmpgId.
+const SOOPERANG_ADD = {
+  FA00001: '계곡 물놀이',        // 국립횡성숲체원 - 청태산 계곡물놀이
+  FA00006: '계곡',              // 국립춘천숲체원
+  FT00001: '물놀이장·수영장',    // 국립산림치유원 - 무료 물놀이장·튜브수영장·물총놀이
+  FT00012: '계곡',             // 국립진안고원산림치유원
+};
+
 for (const [id, reason] of Object.entries(MANUAL_ADD)) map[id] = reason;
+for (const [id, reason] of Object.entries(SOOPERANG_ADD)) map[id] = reason;
 for (const id of MANUAL_REMOVE) delete map[id];
 
 fs.mkdirSync('config', { recursive: true });
