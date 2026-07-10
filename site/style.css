@@ -61,7 +61,10 @@ tr.has{background:#f1f8f1;}
 .approx{font-size:10px;background:#f0f0f0;color:#999;padding:1px 5px;border-radius:6px;vertical-align:middle;}
 .badge{display:inline-block;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:700;}
 .badge.국립{background:#e3f2fd;color:#1565c0;} .badge.공립{background:#e8f5e9;color:#2e7d32;} .badge.사립{background:#fff3e0;color:#e65100;}
-.water{font-size:13px;cursor:help;vertical-align:middle;}
+.water{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:700;cursor:help;vertical-align:middle;white-space:nowrap;}
+.water.wc-valley{background:#e3f5ea;color:#1b7a43;}
+.water.wc-beach{background:#e4f0fd;color:#1560b0;}
+.water.wc-pool{background:#e2f6fb;color:#0d7b96;}
 .book{display:inline-block;margin-top:10px;color:var(--green-d);font-weight:600;text-decoration:none;}
 .book:hover{text-decoration:underline;}
 .note{font-size:13px;color:#444;} .note code{background:#eef2ee;padding:1px 5px;border-radius:4px;}

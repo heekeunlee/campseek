@@ -238,6 +238,16 @@ function doSearch() {
     <tbody>${rows.map(rowHtml).join('')}</tbody></table>`;
 }
 
+// 물놀이 사유(w)를 3분류 칩으로: 해변 🏖️ / 계곡 💦 / 물놀이장 🏊 (상세는 툴팁)
+function waterChip(w) {
+  if (!w) return '';
+  let emoji, label, cls;
+  if (w.startsWith('해변')) { emoji = '🏖️'; label = '해변'; cls = 'wc-beach'; }
+  else if (w.startsWith('계곡') || w.includes('개울') || w.includes('시냇') || w.includes('실개천')) { emoji = '💦'; label = '계곡'; cls = 'wc-valley'; }
+  else { emoji = '🏊'; label = '물놀이장'; cls = 'wc-pool'; }
+  return ` <span class="water ${cls}" title="근처 물놀이: ${w}">${emoji} ${label}</span>`;
+}
+
 function rowHtml(r) {
   const has = (r.availableCount ?? 0) > 0;
   const cnt = r.availableCount == null ? '—'
@@ -249,8 +259,8 @@ function rowHtml(r) {
     bd = `<div class="bd">${seg('독채', r.bd.dc)} · ${seg('휴양관', r.bd.hy)} · ${seg('연립동', r.bd.yl)}</div>`;
   }
   const info = r.infoUrl || r.url || RESERVE_URL;
-  // 계곡·해변·물놀이장 등 물놀이 가능 표시 (r.w = 사유 문구)
-  const water = r.w ? ` <span class="water" title="근처 물놀이: ${r.w}">🏞️</span>` : '';
+  // 계곡·해변·물놀이장 등 물놀이 가능 칩 (r.w = 상세 사유 → 3분류로 표시)
+  const water = waterChip(r.w);
   return `<tr class="${has ? 'has' : ''}">
     <td>${r.name} <span class="badge ${r.type}">${r.type}</span>${water}</td>
     <td>${(r.regionName || '').replace(/^\s*/, '')}</td>

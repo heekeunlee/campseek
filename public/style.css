@@ -56,7 +56,10 @@ th { color: var(--muted); font-weight: 600; font-size: 12px; }
 .badge.국립 { background: #e3f2fd; color: #1565c0; }
 .badge.공립 { background: #e8f5e9; color: #2e7d32; }
 .badge.사립 { background: #fff3e0; color: #e65100; }
-.water { font-size: 13px; cursor: help; vertical-align: middle; }
+.water { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 700; cursor: help; vertical-align: middle; white-space: nowrap; }
+.water.wc-valley { background: #e3f5ea; color: #1b7a43; }
+.water.wc-beach { background: #e4f0fd; color: #1560b0; }
+.water.wc-pool { background: #e2f6fb; color: #0d7b96; }
 .avail-ok { color: var(--ok); font-weight: 700; }
 .avail-no { color: var(--no); }
 .bd { font-size: 11px; margin-top: 3px; color: #8a938a; }
